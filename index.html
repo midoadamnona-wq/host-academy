@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a365d">
+<title>HOST Academy</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--b:#1a56a8;--d:#0f172a;--g:#059669;--o:#d97706;--r:#dc2626;--bg:#f8fafc;--c:#fff;--br:#e2e8f0;--t:#1e293b;--t2:#64748b;--t3:#94a3b8}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);max-width:480px;margin:0 auto;min-height:100vh}
+button{cursor:pointer;font-family:inherit}input,textarea,select{font-family:inherit;font-size:14px}
+#T{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;z-index:999;display:none}
+#L{position:fixed;inset:0;background:rgba(15,23,42,.7);display:none;align-items:center;justify-content:center;z-index:998}
+#L.s{display:flex}
+.hd{padding:16px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.hd h2{font-size:18px;font-weight:800}
+.hd small{font-size:11px;opacity:.7;display:block}
+.hb{background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:8px;padding:6px 12px;font-size:12px}
+.nv{display:flex;background:var(--c);border-bottom:1px solid var(--br)}
+.nv button{flex:1;padding:10px 4px;border:none;background:transparent;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--t2);border-bottom:2px solid transparent;font-size:10px}
+.nv button.a{font-weight:600;border-bottom-color:var(--b);color:var(--b)}
+.ct{padding:16px;padding-bottom:80px}
+.tl{font-size:20px;font-weight:800;margin:0 0 16px}
+.cd{background:var(--c);border-radius:12px;border:1px solid var(--br);margin-bottom:12px;overflow:hidden}
+.ch{padding:10px 16px;font-weight:700;font-size:12px;border-bottom:1px solid var(--br);text-transform:uppercase;letter-spacing:.5px;color:var(--t2);background:#f8fafc}
+.cb{padding:16px}
+.fg{margin-bottom:10px}
+.fl{display:block;font-size:12px;font-weight:600;margin-bottom:4px;color:var(--t2)}
+.fi{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;background:var(--c);color:var(--t);outline:none}
+textarea.fi{min-height:60px;resize:vertical}
+.bp{background:var(--b);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600}
+.bs{background:transparent;color:var(--t);border:1px solid var(--br);border-radius:8px;padding:10px 20px;font-size:14px}
+.bg{background:var(--g);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600}
+.bf{width:100%}
+.bl{padding:14px;font-size:16px}
+.av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a56a8,#2563eb);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0}
+.ib{background:#f0f4f8;border-radius:10px;padding:10px 14px;font-size:13px}
+.pb{height:8px;background:var(--br);border-radius:4px;overflow:hidden}
+.pf{height:100%;border-radius:4px;transition:width .5s}
+.rt{display:flex;gap:5px}
+.rt button{width:34px;height:34px;border-radius:8px;border:2px solid var(--br);background:transparent;font-weight:700;font-size:14px;color:var(--t3);transition:all .15s}
+.lb{display:block;width:100%;padding:10px 14px;border:1px solid var(--br);border-radius:8px;background:transparent;text-align:left;font-size:13px;margin-bottom:6px;cursor:pointer}
+.lb.s{border-color:var(--b);background:#eff6ff;color:#1e40af;font-weight:700}
+.dt{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:12px}
+.dt button{width:30px;height:30px;border-radius:50%;border:2px solid var(--br);background:var(--c);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;color:var(--t2)}
+.dt button.c{border-color:var(--b);background:var(--b);color:#fff}
+.dt button.d{border-color:var(--g);background:#ecfdf5;color:var(--g)}
+.lg{display:flex;align-items:center;gap:14px;width:100%;max-width:340px;padding:18px 20px;border:none;border-radius:14px;color:#fff;text-align:left;margin-bottom:12px;font-size:16px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.lg small{display:block;font-size:12px;font-weight:400;opacity:.8}
+.warn{background:#fef3c7;border:2px solid #f59e0b;border-radius:12px;padding:16px;margin-bottom:12px}
+.chk{display:flex;align-items:center;gap:10px;padding:10px;background:var(--c);border:1px solid var(--br);border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px}
+.chk.done{background:#ecfdf5;border-color:#a7f3d0;text-decoration:line-through;color:var(--t3)}
+.hid{display:none}
+</style>
+</head>
+<body>
+<div id="T"></div>
+<div id="L"><span>⏳ Loading...</span></div>
+<div id="A"></div>
+<script>
+// ═══════════════════════════════════════
+// HOST ACADEMY v2.0 — CLEAN BUILD
+// ═══════════════════════════════════════
+
+const API="https://script.google.com/macros/s/AKfycbxcr054mpOObgU8XGohNE8c_5ENyF9244mCs0H63ozg_r0-TG_XoWbOqwBqMMvQrT3W/exec";
+const PIN_COACH="7391";
+const PIN_ADMIN="582946";
+
+// ─── DATA STRUCTURES ─────────────────
+const CATS=[
+  {id:"drills",nm:"During Drills (5:10-6:15)",ar:"أثناء التمارين",ic:"⚡",cl:"#2563eb",
+    sk:[{id:"ball_handling",n:"Ball Handling",a:"التحكم بالكرة"},{id:"shooting",n:"Shooting",a:"التصويب"},{id:"passing",n:"Passing",a:"التمرير"},{id:"layups",n:"Layups",a:"التسديد القريب"},{id:"defense",n:"Defense",a:"الدفاع"},{id:"speed_agility",n:"Speed & Agility",a:"السرعة والرشاقة"},{id:"coordination",n:"Coordination",a:"التناسق الحركي"},{id:"endurance",n:"Endurance",a:"التحمل"}]},
+  {id:"game",nm:"During Game (6:20-6:50)",ar:"أثناء اللعب",ic:"🏀",cl:"#7c3aed",
+    sk:[{id:"court_awareness",n:"Court Awareness",a:"الوعي بالملعب"},{id:"decision_making",n:"Decision Making",a:"اتخاذ القرار"},{id:"teamwork",n:"Teamwork",a:"العمل الجماعي"},{id:"sportsmanship",n:"Sportsmanship",a:"الروح الرياضية"},{id:"leadership",n:"Leadership",a:"القيادة"}]},
+  {id:"end",nm:"End of Session (6:50)",ar:"نهاية الجلسة",ic:"💪",cl:"#d97706",
+    sk:[{id:"effort",n:"Effort & Discipline",a:"الجهد والانضباط"},{id:"coachability",n:"Coachability",a:"تقبل التوجيه"}]}
+];
+const RCATS=[
+  {id:"technical",nm:"Technical Skills",ar:"المهارات الفنية",ic:"🏀",cl:"#2563eb",sk:["ball_handling","shooting","passing","layups","defense"]},
+  {id:"athletic",nm:"Athletic",ar:"البدني",ic:"💪",cl:"#059669",sk:["speed_agility","coordination","endurance"]},
+  {id:"iq",nm:"Basketball IQ",ar:"ذكاء كرة السلة",ic:"🧠",cl:"#7c3aed",sk:["court_awareness","decision_making"]},
+  {id:"character",nm:"Character & Life",ar:"الشخصية",ic:"⭐",cl:"#d97706",sk:["effort","teamwork","sportsmanship","coachability","leadership"]}
+];
+const SK={};CATS.forEach(c=>c.sk.forEach(s=>{SK[s.id]=s}));
+
+const RUB={
+ball_handling:{1:"Cannot dribble 5sec | لا يدربل 5 ثوان",2:"Stationary, dominant hand | ثابت يد واحدة",3:"Dribble through 5 cones, 0-1 losses | 5 أقماع بدون فقدان",4:"Both hands + crossover | يدين + كروس أوفر",5:"Under pressure + advanced moves | تحت ضغط + حركات متقدمة"},
+shooting:{1:"Cannot reach rim | لا يصل للحلقة",2:"Reaches rim, 0-1/5 makes | 0-1 من 5",3:"2/5 makes, BEEF form | 2 من 5 بشكل BEEF",4:"3/5 makes, consistent | 3 من 5 ثابت",5:"4+/5 makes, off dribble | 4+ من 5"},
+passing:{1:"0-2/10 accurate | 0-2 دقيقة من 10",2:"3-4/10, chest only | 3-4 صدر فقط",3:"5-6/10, chest+bounce | 5-6 صدر+أرضي",4:"7-8/10, on the move | 7-8 أثناء الحركة",5:"9-10/10, creative | 9-10 إبداعي"},
+layups:{1:"Cannot layup | لا يسدد قريب",2:"Wrong footwork, 1-2/10 | خطوات خاطئة",3:"Dominant side, 3-4/10 | يد قوية 3-4",4:"Both sides, 5-7/10 | جانبين 5-7",5:"Under pressure, 8+/10 | تحت ضغط 8+"},
+defense:{1:"No stance, 0-3 slides/30s | لا وضع دفاعي",2:"Flat-footed, 4-6 slides | بدون حركة 4-6",3:"Basic stance, 7-9 slides | أساسي 7-9",4:"Active hands, 10-12 slides | نشط 10-12",5:"Forces turnovers, 13+ slides | يجبر أخطاء 13+"},
+speed_agility:{1:"Cannot complete T-test | لا يكمل الاختبار",2:"Very slow T-test | بطيء جداً",3:"Age-appropriate time | وقت مناسب لسنه",4:"Top 25% for age | أفضل 25%",5:"Top 10%, explosive | أفضل 10% انفجاري"},
+coordination:{1:"Cannot balance 5sec | لا يتوازن 5 ثوان",2:"Balance 5-15sec | 5-15 ثانية",3:"Balance 15-25sec, 10+ rope | 15-25 ونط 10+",4:"Balance 25-30sec, 25+ rope | 25-30 ونط 25+",5:"Full 30sec, 40+ rope | 30 كاملة ونط 40+"},
+endurance:{1:"Stops in 2 minutes | يتوقف في دقيقتين",2:"40-60% of time limit | 40-60% من الوقت",3:"60-80% of time limit | 60-80%",4:"80-95% of time limit | 80-95%",5:"95-100%, consistent | 95-100% ثابت"},
+court_awareness:{1:"Stands in one spot | يقف مكانه",2:"Follows ball only, 20-40% correct | يتبع الكرة 20-40%",3:"Finds spaces, 40-60% correct | يجد مساحات 40-60%",4:"Reads plays, 60-80% correct | يقرأ اللعب 60-80%",5:"Anticipates, 80%+ correct | يستبق 80%+"},
+decision_making:{1:"0-2/10 good decisions | 0-2 قرارات جيدة",2:"3-4/10 good | 3-4",3:"5-6/10 good | 5-6",4:"7-8/10, smart under pressure | 7-8 تحت ضغط",5:"9-10/10, elite | 9-10 متميز"},
+teamwork:{1:"Never passes, no communication | لا يمرر ولا يتواصل",2:"Passes when forced | يمرر عند الإجبار",3:"Willing, 2-3 voluntary passes | مستعد 2-3 تمريرات",4:"4+ passes, encourages others | 4+ ويشجع",5:"Creates plays, vocal leader | يصنع فرص وقائد"},
+sportsmanship:{1:"Argues, blames | يجادل ويلوم",2:"Poor loser sometimes | يخسر بصعوبة أحياناً",3:"Respectful mostly | محترم غالباً",4:"Graceful, congratulates opponents | رشيق ويهنئ",5:"Role model | سلوك قدوة"},
+effort:{1:"Gives up, distracted 80%+ | يستسلم ومشتت",2:"Inconsistent, focused 30-50% | غير ثابت 30-50%",3:"Steady, focused 50-70% | مستمر 50-70%",4:"High effort, focused 70-90% | عالي 70-90%",5:"Maximum always, inspires others | أقصى جهد ويلهم"},
+coachability:{1:"Ignores instructions | يتجاهل",2:"Listens, doesn't apply | يسمع لا يطبق",3:"Follows after 1-2 reps | يتبع بعد 1-2 تكرار",4:"Applies immediately | يطبق فوراً",5:"Self-corrects, asks questions | يصحح نفسه ويسأل"},
+leadership:{1:"Completely passive | سلبي تماماً",2:"Participates when asked | عند الطلب",3:"Leads small tasks | يقود مهام صغيرة",4:"Encourages, organizes | يشجع وينظم",5:"Natural captain | كابتن طبيعي"}
+};
+
+const PLANS=[
+  {id:"bh",nm:"🏀 Ball Handling Day",life:"Persistence"},
+  {id:"sh",nm:"🎯 Shooting Day",life:"Resilience"},
+  {id:"pt",nm:"🤝 Passing & Teamwork",life:"Selflessness"},
+  {id:"df",nm:"🛡️ Defense Day",life:"Hard Work"},
+  {id:"gd",nm:"🏆 Game Day",life:"Grace in Win/Loss"},
+  {id:"fn",nm:"🎉 Fun & Challenges",life:"Joy & Creativity"}
+];
+
+// ─── AUTO RECOMMENDATIONS ────────────
+function getRecs(skills,name,age){
+  const recs={coach:[],parent:[],child:[]};
+  if(!skills||!Object.keys(skills).length)return recs;
+  const sorted=Object.entries(skills).sort((a,b)=>Number(a[1])-Number(b[1]));
+  const weakest=sorted.filter(([k,v])=>Number(v)<=2).slice(0,3);
+  const strongest=sorted.filter(([k,v])=>Number(v)>=4);
+
+  const homeActs={
+    ball_handling:{en:"Dribble any ball 5 min daily — 2 min left hand, 2 min right, 1 min alternating",ar:"دريبل 5 دقائق — دقيقتين يسار، دقيقتين يمين، دقيقة تبديل"},
+    shooting:{en:"Practice BEEF form without hoop — Balance, Eyes, Elbow, Follow-through, 3 min",ar:"تمرين شكل BEEF بدون حلقة 3 دقائق"},
+    passing:{en:"Wall passing — 3 min chest pass, 3 min bounce pass",ar:"تمرير على الحائط — 3 دقائق صدر و3 أرضي"},
+    layups:{en:"Practice 1-2 step footwork without ball, then add ball",ar:"تمرين خطوات 1-2 بدون كرة ثم أضف الكرة"},
+    defense:{en:"Mirror drill with family member — shadow movements 2 min",ar:"تمرين المرآة مع فرد من العائلة دقيقتين"},
+    speed_agility:{en:"Running games — chase, tag, racing with siblings 15 min",ar:"ألعاب جري — مطاردة وسباق 15 دقيقة"},
+    coordination:{en:"Jump rope 3 min + balance on one foot 30 sec each leg",ar:"نط حبل 3 دقائق + توازن 30 ثانية كل رجل"},
+    endurance:{en:"Any continuous activity 15+ min — cycling, swimming, running",ar:"أي نشاط متواصل 15 دقيقة — دراجة، سباحة، جري"},
+    court_awareness:{en:"Watch basketball highlights — ask where players should be",ar:"شاهد مقاطع كرة سلة واسأل أين يجب أن يكون اللاعبون"},
+    decision_making:{en:"Play board games or strategy games that require thinking ahead",ar:"العب ألعاب لوحية تتطلب التفكير"},
+    teamwork:{en:"Group activities — board games, team cooking, group projects",ar:"أنشطة جماعية — ألعاب لوحية، طبخ جماعي"},
+    sportsmanship:{en:"Discuss wins/losses from TV sports — what is good behavior?",ar:"ناقش الفوز والخسارة من الرياضة على التلفزيون"},
+    effort:{en:"Set a daily goal — ask before/after: what to improve? did you try your best?",ar:"ضع هدف يومي — اسأل قبل/بعد: ماذا تحسن؟ هل بذلت جهدك؟"},
+    coachability:{en:"Practice active listening — repeat instructions before doing them",ar:"تمرين الاستماع — يكرر التعليمات قبل تنفيذها"},
+    leadership:{en:"Give small responsibilities at home — organizing, helping siblings",ar:"أعطِ مسؤوليات صغيرة — تنظيم، مساعدة الإخوة"},
+  };
+
+  // Weakest skills → coach and parent recs
+  weakest.forEach(([sid,v])=>{
+    const sk=SK[sid];if(!sk)return;
+    recs.coach.push("Focus on "+sk.n+" — currently "+v+"/5. Use extra drill time for this skill.");
+    const ha=homeActs[sid];
+    if(ha)recs.parent.push({skill:sk.n,skillAr:sk.a,en:ha.en,ar:ha.ar,done:false});
+    recs.child.push("Practice "+sk.n+" this week! You can do it! 💪 | تمرن على "+sk.a+" هذا الأسبوع!");
+  });
+
+  // Strongest → celebrate
+  strongest.forEach(([sid,v])=>{
+    const sk=SK[sid];if(!sk)return;
+    recs.coach.push("Celebrate "+sk.n+" ("+v+"/5) — challenge "+name+" with advanced drills.");
+  });
+
+  // Effort specific
+  if(Number(skills.effort)<=2)recs.coach.push("PRIORITY: "+name+"'s effort is low. Use positive reinforcement. Set small achievable goals.");
+  if(Number(skills.coachability)>=4)recs.coach.push(name+" is highly coachable — can help demonstrate drills to younger players.");
+  if(Number(skills.teamwork)<=2)recs.coach.push("Pair "+name+" with a strong team player for drills to build teamwork naturally.");
+
+  return recs;
+}
+
+// ─── STATE ───────────────────────────
+let S={
+  mode:null,d:{players:[],sessions:[],evaluations:[],messages:[]},
+  ct:"evaluate",at:"players",pt:"report",kt:"scores",
+  coach:"",plan:null,sess:null,evals:[],ei:0,sn:"",
+  cid:null,sp:null,dup:null,edit:null,coachSort:"score",adminSort:"score"
+};
+
+// ─── UTILS ───────────────────────────
+function gid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function fd(d){return new Date(d).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}
+function av(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:0}
+function rc(v){return v>=4?"#047857":v>=3?"#d97706":"#dc2626"}
+function rl(v){return{1:"Needs Work",2:"Developing",3:"Good",4:"Very Good",5:"Excellent"}[Math.round(v)]||"—"}
+function toast(m){const t=document.getElementById("T");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2500)}
+function load(v){document.getElementById("L").classList.toggle("s",v)}
+
+// ─── API ─────────────────────────────
+async function api(){
+  load(true);
+  try{const r=await fetch(API+"?action=getAll");const d=await r.json();
+    if(d.success){
+      d.evaluations=(d.evaluations||[]).map(e=>({...e,attended:e.attended===true||e.attended==="true"||e.attended==="TRUE",skills:typeof e.skills_json==="string"?JSON.parse(e.skills_json||"{}"):e.skills_json||{}}));
+      d.players=(d.players||[]).map(p=>({...p,active:p.active!==false&&p.active!=="false",age:Number(p.age)||0,height_cm:Number(p.height_cm)||0,weight_kg:Number(p.weight_kg)||0}));
+      S.d=d;
+    }
+  }catch(e){toast("Offline mode")}
+  load(false);
+}
+async function post(body){
+  load(true);
+  try{const r=await fetch(API,{method:"POST",body:JSON.stringify(body),headers:{"Content-Type":"text/plain"}});const d=await r.json();load(false);
+    if(d.success){await api();return true}toast("Error: "+(d.error||"?"));return false;
+  }catch(e){load(false);toast("Network error");return false}
+}
+
+// ─── STATS ───────────────────────────
+function stats(pid){
+  const ev=S.d.evaluations.filter(e=>e.player_id===pid&&e.attended);
+  if(!ev.length)return null;
+  const lat=ev[ev.length-1];const byCat={};
+  RCATS.forEach(cat=>{
+    const vals=ev.map(e=>{const v=cat.sk.map(s=>Number(e.skills?.[s])||0).filter(x=>x>0);return v.length?av(v):0}).filter(x=>x>0);
+    const lv=cat.sk.map(s=>Number(lat.skills?.[s])||0).filter(x=>x>0);
+    byCat[cat.id]={avg:av(vals),trend:vals.length>=2?vals[vals.length-1]-vals[vals.length-2]:0};
+  });
+  const bySk={};
+  RCATS.forEach(cat=>cat.sk.forEach(sid=>{
+    const vals=ev.map(e=>Number(e.skills?.[sid])||0).filter(x=>x>0);
+    if(vals.length)bySk[sid]={avg:av(vals),trend:vals.length>=2?vals[vals.length-1]-vals[vals.length-2]:0};
+  }));
+  const overall=av(Object.values(byCat).map(c=>c.avg).filter(x=>x>0));
+  const allEv=S.d.evaluations.filter(e=>e.player_id===pid);
+  const att=allEv.length?(allEv.filter(e=>e.attended).length/allEv.length*100):0;
+  return{sessions:ev.length,byCat,bySk,overall,att,latest:lat};
+}
+
+function makeRadar(skills){
+  const sz=220,cx=sz/2,cy=sz/2,r=sz/2-32,ids=["ball_handling","speed_agility","court_awareness","effort","teamwork"],lb=["Ball","Speed","Court","Effort","Team"],n=ids.length;
+  let s='<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 '+sz+" "+sz+'">';
+  for(let l=1;l<=5;l++){let p=[];for(let i=0;i<n;i++){const a=2*Math.PI*i/n-Math.PI/2;p.push((cx+r*l/5*Math.cos(a)).toFixed(1)+","+(cy+r*l/5*Math.sin(a)).toFixed(1))}s+='<polygon points="'+p.join(" ")+'" fill="none" stroke="#e2e8f0" stroke-width="1"/>';}
+  let p=[];for(let i=0;i<n;i++){const a=2*Math.PI*i/n-Math.PI/2;const v=Number(skills[ids[i]])||0;p.push((cx+r*v/5*Math.cos(a)).toFixed(1)+","+(cy+r*v/5*Math.sin(a)).toFixed(1));s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+r*Math.cos(a)).toFixed(1)+'" y2="'+(cy+r*Math.sin(a)).toFixed(1)+'" stroke="#e2e8f0"/>';}
+  s+='<polygon points="'+p.join(" ")+'" fill="rgba(26,86,168,.15)" stroke="#1a56a8" stroke-width="2.5"/>';
+  for(let i=0;i<n;i++){const a=2*Math.PI*i/n-Math.PI/2;const v=Number(skills[ids[i]])||0;s+='<circle cx="'+(cx+r*v/5*Math.cos(a)).toFixed(1)+'" cy="'+(cy+r*v/5*Math.sin(a)).toFixed(1)+'" r="3.5" fill="#1a56a8"/>';const x=cx+(r+22)*Math.cos(a),y=cy+(r+22)*Math.sin(a);s+='<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">'+lb[i]+'</text>';}
+  s+='</svg>';return s;
+}
+
+// ─── SKILL ANALYSIS TEXT ─────────────
+function skTxt(sid,v,name){
+  const t={
+    ball_handling:{h:name+" shows strong ball handling with confident control.",m:"Ball handling developing. More weak-hand practice recommended.",l:"Building ball handling foundations with stationary dribbling."},
+    shooting:{h:"Strong shooting with consistent BEEF form.",m:"Developing shooting form. Practice form close to basket.",l:"Beginning shooting journey. Starting close to build form."},
+    passing:{h:"Excellent passer with accuracy and timing.",m:"Good passing fundamentals developing.",l:"Learning basic chest and bounce passes."},
+    layups:{h:"Strong finishing from both sides.",m:"Layup technique developing. Working on footwork.",l:"Learning layup footwork step by step."},
+    defense:{h:"Excellent defensive positioning and effort.",m:"Defensive stance developing. Working on slides.",l:"Learning defensive basics and proper stance."},
+    speed_agility:{h:"Naturally quick with excellent direction changes.",m:"Good speed. Footwork drills will improve this.",l:"Speed developing naturally with activity."},
+    coordination:{h:"Excellent body control and balance.",m:"Good coordination developing.",l:"Motor coordination building with practice."},
+    endurance:{h:"Maintains energy throughout the session.",m:"Good endurance for most of session.",l:"Energy building gradually each session."},
+    court_awareness:{h:"Reads the court well and anticipates plays.",m:"Beginning to understand positioning.",l:"Court awareness develops with game experience."},
+    decision_making:{h:"Makes smart choices under pressure.",m:"Decision making developing with experience.",l:"Learning to make decisions on court."},
+    teamwork:{h:"Natural team player who encourages others.",m:"Teamwork developing through paired drills.",l:"Building teamwork through group activities."},
+    sportsmanship:{h:"Excellent sportsmanship — a role model.",m:"Good sportsmanship most of the time.",l:"Learning to handle wins and losses."},
+    effort:{h:"Outstanding effort — focused and disciplined always.",m:"Good effort overall. Sleep and nutrition help maintain it.",l:"Needs encouragement. We celebrate small wins."},
+    coachability:{h:"Highly coachable — applies feedback immediately.",m:"Responds well to coaching. Improving consistency.",l:"Learning to follow instructions step by step."},
+    leadership:{h:"Natural leader who inspires teammates.",m:"Leadership qualities emerging.",l:"Learning to participate actively."},
+  };
+  const s=t[sid]||t.effort;return v>=4?s.h:v>=3?s.m:s.l;
+}
+
+// ═══ AI PROFILE — ARCHETYPE & PATTERNS ═══
+function getArchetype(skills){
+  if(!skills||!Object.keys(skills).length)return{name:"New Player",ar:"لاعب جديد",emoji:"\uD83C\uDFC0"};
+  const g=k=>Number(skills[k])||0;
+  if(g("leadership")>=4&&g("teamwork")>=4)return{name:"Natural Leader",ar:"قائد بالفطرة",emoji:"\uD83D\uDC51"};
+  if(g("speed_agility")>=4&&g("endurance")>=3)return{name:"Athletic Engine",ar:"محرك رياضي",emoji:"\u26A1"};
+  if(g("ball_handling")>=4&&g("court_awareness")>=3)return{name:"Court General",ar:"جنرال الملعب",emoji:"\uD83E\uDDE0"};
+  if(g("effort")>=4&&g("coachability")>=4)return{name:"Growth Mindset",ar:"عقلية النمو",emoji:"\uD83D\uDE80"};
+  if(g("sportsmanship")>=4)return{name:"Team Spirit",ar:"روح الفريق",emoji:"\uD83E\uDD1D"};
+  const vals=Object.values(skills).map(Number).filter(v=>v>0);const avg2=av(vals);
+  if(avg2>=3)return{name:"All-Rounder",ar:"شامل",emoji:"\u2B50"};
+  if(avg2>=2)return{name:"Rising Star",ar:"نجم صاعد",emoji:"\uD83C\uDF1F"};
+  return{name:"Explorer",ar:"مستكشف",emoji:"\uD83C\uDFC0"};
+}
+
+function getPatterns(playerEvals){
+  const patterns=[];if(playerEvals.length<2)return patterns;
+  const traj={};
+  playerEvals.forEach(ev=>{Object.entries(ev.skills||{}).forEach(([sid,val])=>{const v=Number(val);if(!v)return;if(!traj[sid])traj[sid]=[];traj[sid].push(v)})});
+  Object.entries(traj).forEach(([sid,vals])=>{
+    if(vals.length<2)return;
+    const sk=SK[sid];if(!sk)return;
+    if(vals.every((v,i)=>i===0||v>=vals[i-1])&&vals[vals.length-1]>vals[0])
+      patterns.push({type:"up",skill:sk.n,text:sk.n+" improved every session ("+vals.join(" \u2192 ")+")"});
+    else if(vals.every((v,i)=>i===0||v<=vals[i-1])&&vals[vals.length-1]<vals[0])
+      patterns.push({type:"down",skill:sk.n,text:sk.n+" declined ("+vals.join(" \u2192 ")+") \u2014 training approach may need adjustment"});
+  });
+  // Character vs technical
+  const last=playerEvals[playerEvals.length-1].skills||{};
+  const techSk=["ball_handling","shooting","passing","layups","defense"];
+  const charSk=["effort","teamwork","sportsmanship","coachability","leadership"];
+  const tAvg=av(techSk.map(s=>Number(last[s])||0).filter(v=>v>0));
+  const cAvg=av(charSk.map(s=>Number(last[s])||0).filter(v=>v>0));
+  if(cAvg>tAvg+0.5)patterns.push({type:"insight",text:"Character skills ("+cAvg.toFixed(1)+") ahead of technical ("+tAvg.toFixed(1)+") \u2014 has the attitude, needs the drills"});
+  else if(tAvg>cAvg+0.5)patterns.push({type:"insight",text:"Technical skills ("+tAvg.toFixed(1)+") ahead of character ("+cAvg.toFixed(1)+") \u2014 focus on teamwork and effort"});
+  return patterns;
+}
+
+function getLearningStyle(skills){
+  const c=Number(skills.coachability)||0,e=Number(skills.effort)||0;
+  if(c>=4&&e>=4)return"Responds to direct coaching. Can handle complex instructions. Challenge with advanced techniques.";
+  if(c>=3&&e<=2)return"Understands instructions but needs motivation. Use concrete, countable challenges.";
+  if(c<=2&&e>=3)return"Works hard but needs instructions repeated. Show, don't tell.";
+  return"Needs patient, step-by-step guidance with lots of encouragement.";
+}
+
+function getOverride(pid){
+  return S.d.messages.find(m=>m.type==="admin_override"&&String(m.text).startsWith("OVERRIDE:"+pid+":"));
+}
+
+function parseOverride(msg){
+  if(!msg)return null;
+  try{const parts=msg.text.split("OVERRIDE:")[1];const pid=parts.split(":")[0];const json=parts.substring(pid.length+1);return JSON.parse(json)}catch(e){return null}
+}
+
+// ═══════════════════════════════════════
+// RENDER ENGINE
+// ═══════════════════════════════════════
+function R(){
+  const a=document.getElementById("A");
+  if(!S.mode)return a.innerHTML=vLogin();
+  if(S.mode==="pinc")return a.innerHTML=vPin("Coach","coach","📋",4);
+  if(S.mode==="pinp")return a.innerHTML=vPin("Parent","parent","👨‍👩‍👧‍👦",4);
+  if(S.mode==="pink")return a.innerHTML=vPin("Player","kid","🏀",4);
+  if(S.mode==="pina")return a.innerHTML=vPin("Admin","admin","⚙️",6);
+  if(S.mode==="coach")return a.innerHTML=vCoach();
+  if(S.mode==="parent")return a.innerHTML=vParent();
+  if(S.mode==="kid")return a.innerHTML=vKid();
+  if(S.mode==="admin")return a.innerHTML=vAdmin();
+}
+
+function vLogin(){
+  return '<div style="min-height:100vh;background:linear-gradient(135deg,#0f172a,#1e3a5f,#1a365d);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px"><div style="font-size:72px">🏀</div><div style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-1px">HOST Academy</div><div style="font-size:14px;color:rgba(255,255,255,.6);margin:4px 0 8px">House of Sports Talents</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-bottom:32px">Empowering Future Champions \u2014 In Sport, In Life</div>'
+    +'<button class="lg" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)" onclick="S.mode=\'pinc\';R()">📋 <div>Coach Access<small>دخول المدرب</small></div></button>'
+    +'<button class="lg" style="background:linear-gradient(135deg,#059669,#047857)" onclick="S.mode=\'pinp\';R()">👨‍👩‍👧‍👦 <div>Parent Access<small>دخول ولي الأمر</small></div></button>'
+    +'<button class="lg" style="background:linear-gradient(135deg,#0891b2,#0e7490)" onclick="S.mode=\'pink\';R()">🏀 <div>Player Access<small>دخول اللاعب</small></div></button>'
+    +'<button class="lg" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)" onclick="S.mode=\'pina\';R()">⚙️ <div>Admin<small>الإدارة</small></div></button>'
+    +'<div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:20px">HOST Academy v3.0 \u00A9 2026</div></div>';
+}
+
+function vPin(label,target,icon,len){
+  return '<div style="min-height:100vh;background:#0f172a;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px"><div style="font-size:48px">'+icon+'</div><h2 style="color:#fff;font-size:20px;margin:16px 0 8px">'+label+' Access</h2><p style="color:rgba(255,255,255,.5);font-size:13px;margin-bottom:24px">Enter '+len+'-digit PIN</p><input type="password" maxlength="'+len+'" class="fi" id="pv" style="width:220px;text-align:center;font-size:28px;letter-spacing:10px;background:#1e293b;color:#fff;border-color:#334155" onkeyup="if(event.key===\'Enter\')ckPin(\''+target+'\')"><div style="display:flex;gap:12px;margin-top:20px"><button class="bs" style="color:#fff;border-color:#475569" onclick="S.mode=null;R()">Back</button><button class="bp" onclick="ckPin(\''+target+'\')">Enter</button></div></div>';
+}
+
+function ckPin(t){
+  const pin=document.getElementById("pv").value.trim();
+  if(t==="coach"){if(pin===PIN_COACH){S.mode="coach";api().then(R)}else toast("Wrong PIN")}
+  else if(t==="admin"){if(pin===PIN_ADMIN){S.mode="admin";api().then(R)}else toast("Wrong PIN")}
+  else if(t==="parent"||t==="kid"){
+    toast("Loading...");
+    api().then(()=>{
+      if(!S.d.players.length){toast("Cannot load data. Check connection.");return}
+      const ch=S.d.players.find(p=>{
+        const pp=String(p.parent_pin||"").trim();
+        return pp===pin||pp===pin.replace(/^0+/,"")||String(Number(pp))===String(Number(pin));
+      });
+      if(ch){
+        S.cid=ch.id;
+        if(t==="parent"){S.mode="parent";S.pt="report"}else{S.mode="kid";S.kt="scores"}
+        R();
+      }else{
+        const allPins=S.d.players.map(p=>String(p.parent_pin||"?")).join(",");
+        toast("Invalid PIN. Loaded "+S.d.players.length+" players");
+        console.log("PIN entered:",pin,"Available PINs:",allPins);
+      }
+    });
+  }
+}
+
+function logout(){S.mode=null;S.ct="evaluate";S.at="players";S.sess=null;S.dup=null;S.edit=null;R()}
+
+// ═══ COACH VIEW ═══════════════════════
+function vCoach(){
+  let h='<div class="hd" style="background:linear-gradient(135deg,#1e40af,#1e40afdd)"><div><h2>🏀 Coach / المدرب</h2></div><div style="display:flex;gap:6px"><button class="hb" onclick="logout()">Logout</button></div></div>';
+  if(S.ct==="evaluating"&&S.sess)return h+vEval();
+  if(S.ct==="summary"&&S.sess)return h+vSummary();
+  if(S.ct==="recs")return h+vCoachRecs();
+  const tabs=[["evaluate","Session / جلسة","📋"],["recs","Players / اللاعبين","🎯"],["plans","Plans / خطط","📖"]];
+  h+='<div class="nv">'+tabs.map(t=>'<button class="'+(S.ct===t[0]?"a":"")+'" onclick="S.ct=\''+t[0]+'\';R()"><span style="font-size:18px">'+t[2]+'</span>'+t[1]+'</button>').join("")+'</div><div class="ct">';
+  if(S.ct==="evaluate")h+=vNewSess();
+  else if(S.ct==="plans")h+=vPlans();
+  return h+'</div>';
+}
+
+function vNewSess(){
+  const pl=S.d.players.filter(p=>p.active);
+  let h='<h2 class="tl">Start Session</h2><div class="cd"><div class="ch">Session Setup</div><div class="cb">';
+  h+='<div class="fg"><label class="fl">Coach Name / اسم المدرب</label><input class="fi" id="cn" value="'+S.coach+'" oninput="S.coach=this.value"></div>';
+  h+='<div class="fg"><label class="fl">Training Plan</label>';
+  PLANS.forEach(p=>{h+='<button class="lb'+(S.plan===p.id?" s":"")+'" onclick="S.plan=S.plan===\''+p.id+'\'?null:\''+p.id+'\';R()">'+p.nm+' <span style="color:#d97706;font-size:11px">\u2B50 '+p.life+'</span></button>'});
+  h+='</div><div class="ib" style="margin:12px 0"><b>📋 15-Skill Evaluation with Standardized Criteria</b><br><span style="font-size:11px;color:var(--t3)">Rate during drills \u2192 during game \u2192 end of session. Criteria shown for each rating.</span></div>';
+  if(S.dup){h+='<div class="warn"><b style="color:#92400e">\u26A0\uFE0F Session recorded today</b><div style="font-size:12px;color:#92400e;margin:8px 0">Coach: '+(S.dup.coach||"\u2014")+' | '+fd(S.dup.date)+'</div><div style="display:flex;gap:8px"><button class="bp" style="flex:1;background:#d97706" onclick="S.edit=S.dup;S.dup=null;startS()">\u270F\uFE0F Edit</button><button class="bs" style="flex:1" onclick="S.dup=null;R()">Cancel</button></div></div>'}
+  h+='<div class="ib" style="margin-bottom:12px">\uD83D\uDCC5 '+fd(new Date())+' \u00B7 \uD83D\uDC65 '+pl.length+' players</div>';
+  h+='<button class="bp bf bl" onclick="startS()" '+(pl.length?"":"disabled")+'>🏀 Start \u2014 15 Skills \u00D7 '+pl.length+' Players</button></div></div>';
+  return h;
+}
+
+function startS(){
+  const pl=S.d.players.filter(p=>p.active);if(!pl.length){toast("Add players first");return}
+  const today=new Date().toISOString().slice(0,10);
+  const ex=S.d.sessions.find(s=>s.date&&s.date.slice(0,10)===today);
+  if(ex&&!S.edit){S.dup=ex;R();return}
+  S.sess={id:S.edit?S.edit.id:gid(),date:S.edit?S.edit.date:new Date().toISOString(),coach:S.coach,plan:S.plan,edited:!!S.edit};
+  S.ei=0;
+  if(S.edit){
+    const old=S.d.evaluations.filter(e=>e.session_id===S.edit.id);
+    S.evals=pl.map(p=>{const o=old.find(e=>e.player_id===p.id);return o?{pid:p.id,pn:p.name,att:o.attended,sk:{...(o.skills||{})},nt:o.notes||""}:{pid:p.id,pn:p.name,att:true,sk:{},nt:""}});
+  }else S.evals=pl.map(p=>({pid:p.id,pn:p.name,att:true,sk:{},nt:""}));
+  S.edit=null;S.dup=null;S.ct="evaluating";R();
+}
+
+function vEval(){
+  const ev=S.evals[S.ei],tot=S.evals.length,pct=Math.round((S.ei+1)/tot*100);
+  let h='<div class="ct"><div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--t2);margin-bottom:4px"><span>Player '+(S.ei+1)+'/'+tot+'</span><span>'+pct+'%</span></div><div class="pb"><div class="pf" style="width:'+pct+'%;background:var(--b)"></div></div></div>';
+  h+='<div class="cd"><div style="display:flex;align-items:center;gap:14px;padding:16px;border-bottom:1px solid var(--br)"><div class="av" style="width:52px;height:52px;font-size:22px">'+ev.pn.charAt(0)+'</div><div style="font-size:22px;font-weight:800">'+ev.pn+'</div></div><div class="cb">';
+  // Attendance
+  h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#f8fafc;border-radius:10px;margin-bottom:16px"><span style="font-weight:600">Attended? / حضر؟</span><div style="display:flex;gap:8px">';
+  h+='<button style="width:44px;height:44px;border-radius:10px;border:2px solid '+(ev.att?"var(--g)":"var(--br)")+";background:"+(ev.att?"#ecfdf5":"transparent")+";color:"+(ev.att?"var(--g)":"var(--t2)")+';font-weight:700;font-size:18px" onclick="S.evals[S.ei].att=true;R()">\u2713</button>';
+  h+='<button style="width:44px;height:44px;border-radius:10px;border:2px solid '+(!ev.att?"var(--r)":"var(--br)")+";background:"+(!ev.att?"#fef2f2":"transparent")+";color:"+(!ev.att?"var(--r)":"var(--t2)")+';font-weight:700;font-size:18px" onclick="S.evals[S.ei].att=false;S.evals[S.ei].sk={};R()">\u2717</button></div></div>';
+
+  if(ev.att){
+    CATS.forEach(cat=>{
+      h+='<div style="margin-bottom:16px"><div style="font-size:14px;font-weight:700;color:'+cat.cl+';margin-bottom:8px">'+cat.ic+' '+cat.nm+'</div>';
+      cat.sk.forEach(sk=>{
+        const val=ev.sk[sk.id]||0;
+        h+='<div style="margin-bottom:12px;padding-left:8px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;font-weight:600">'+sk.n+' <span style="color:var(--t3);font-size:11px">'+sk.a+'</span></span>';
+        if(val)h+='<span style="font-size:11px;color:'+rc(val)+';font-weight:600">'+rl(val)+'</span>';
+        h+='</div><div class="rt">';
+        for(let v=1;v<=5;v++)h+='<button style="'+(val===v?"background:"+rc(v)+";border-color:"+rc(v)+";color:#fff":"")+'" onclick="S.evals[S.ei].sk.'+sk.id+'='+v+';R()">'+v+'</button>';
+        h+='</div>';
+        if(val&&RUB[sk.id])h+='<div style="font-size:10px;color:'+rc(val)+';margin-top:3px;padding:4px 8px;background:#f8fafc;border-radius:6px;border-left:3px solid '+rc(val)+'">'+RUB[sk.id][val]+'</div>';
+        else h+='<div style="font-size:10px;color:var(--t3);margin-top:3px;font-style:italic">Tap to see criteria | اضغط لرؤية المعيار</div>';
+        h+='</div>';
+      });
+      h+='</div>';
+    });
+    h+='<div class="fg"><label class="fl">Notes / ملاحظات</label><textarea class="fi" id="en" oninput="S.evals[S.ei].nt=this.value">'+ev.nt+'</textarea></div>';
+  }else h+='<div class="ib" style="text-align:center;padding:20px">\u274C Absent</div>';
+  h+='<div style="display:flex;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid var(--br)"><button class="bs" onclick="S.ei=Math.max(0,S.ei-1);R()" '+(S.ei===0?"disabled":"")+'>\u2190 Prev</button>';
+  h+=S.ei<tot-1?'<button class="bp" onclick="S.ei++;R()">Next \u2192</button>':'<button class="bg" onclick="S.ct=\'summary\';R()">Review \u2713</button>';
+  h+='</div><button class="bs bf" style="margin-top:10px;font-size:12px;color:var(--r)" onclick="if(confirm(\'Cancel this session? All ratings will be lost.\')){S.sess=null;S.evals=[];S.ct=\'evaluate\';R()}">\u2717 Cancel Session / إلغاء الجلسة</button></div></div>';
+  h+='<div class="dt">';S.evals.forEach((e,i)=>{const dn=Object.keys(e.sk||{}).length>0;h+='<button class="'+(i===S.ei?"c":dn?"d":"")+'" onclick="S.ei='+i+';R()">'+e.pn.charAt(0)+'</button>'});
+  h+='</div></div>';return h;
+}
+
+function vSummary(){
+  const att=S.evals.filter(e=>e.att);
+  let h='<div class="ct"><h2 class="tl">Session Summary</h2><div class="cd"><div class="ch">Review</div><div class="cb"><div class="ib" style="margin-bottom:12px">\uD83D\uDCC5 '+fd(S.sess.date)+'<br>\uD83D\uDC64 Coach: '+(S.sess.coach||"\u2014")+'<br>\u2705 '+att.length+' / '+S.evals.length+'</div>';
+  att.forEach(e=>{const r=Object.values(e.sk||{}).filter(v=>v>0);h+='<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f1f5f9"><span style="font-weight:600">'+e.pn+'</span><span style="font-size:13px;color:'+(r.length?"var(--g)":"var(--r)")+'">'+(r.length?av(r).toFixed(1)+"/5 ("+r.length+" skills)":"Not rated")+'</span></div>'});
+  h+='<div class="fg" style="margin-top:12px"><label class="fl">Session Notes</label><textarea class="fi" id="sno" oninput="S.sn=this.value">'+S.sn+'</textarea></div>';
+  h+='<div style="display:flex;gap:8px"><button class="bs" onclick="S.ct=\'evaluating\';R()">\u2190 Edit</button><button class="bg" style="flex:1" onclick="saveSess()">\u2713 Save</button></div></div></div></div>';
+  return h;
+}
+
+async function saveSess(){
+  const session={...S.sess,notes:S.sn,completed:true};
+  const evals=S.evals.map(e=>({session_id:session.id,player_id:e.pid,player_name:e.pn,attended:e.att,skills:e.sk,notes:e.nt}));
+  if(await post({action:"saveSession",session,evaluations:evals})){S.sess=null;S.evals=[];S.coach="";S.sn="";S.plan=null;S.ct="evaluate";toast(session.edited?"Updated! \u270F\uFE0F":"Saved! \uD83C\uDFC0");R()}
+}
+
+function vCoachRecs(){
+  const pl=S.d.players.filter(p=>p.active);
+  let h='<div class="ct"><h2 class="tl">\uD83C\uDFAF Player Priorities / أولويات اللاعبين</h2>';
+  if(!S.d.evaluations.length){h+='<div class="ib">No evaluations yet.</div>';return h+'</div>'}
+  
+  // Sort buttons
+  if(!S.coachSort)S.coachSort="score";
+  h+='<div style="display:flex;gap:6px;margin-bottom:12px">';
+  ["score","name","age"].forEach(s=>{h+='<button style="flex:1;padding:8px;border:1px solid '+(S.coachSort===s?"var(--b)":"var(--br)")+';border-radius:8px;background:'+(S.coachSort===s?"#eff6ff":"transparent")+';color:'+(S.coachSort===s?"var(--b)":"var(--t2)")+';font-size:12px;font-weight:600;cursor:pointer" onclick="S.coachSort=\''+s+'\';R()">'+(s==="score"?"By Score / \u0628\u0627\u0644\u0646\u062A\u064A\u062C\u0629":s==="name"?"By Name / \u0628\u0627\u0644\u0627\u0633\u0645":"By Age / \u0628\u0627\u0644\u0639\u0645\u0631")+'</button>'});
+  h+='</div>';
+  
+  const sorted=pl.map(p=>({p,st:stats(p.id)})).filter(x=>x.st);
+  if(S.coachSort==="score")sorted.sort((a,b)=>a.st.overall-b.st.overall);
+  else if(S.coachSort==="name")sorted.sort((a,b)=>a.p.name.localeCompare(b.p.name));
+  else sorted.sort((a,b)=>(a.p.age||0)-(b.p.age||0));
+  
+  sorted.forEach(({p,st},idx)=>{
+    const arch=getArchetype(st.latest.skills||{});
+    const latSkills=st.latest.skills||{};
+    const weak=Object.entries(latSkills).filter(([k,v])=>Number(v)<=2).sort((a,b)=>Number(a[1])-Number(b[1]));
+    const scoreColor=st.overall>=3?"var(--g)":st.overall>=2?"var(--o)":"var(--r)";
+    
+    // Compact card — tap to expand
+    h+='<div class="cd" style="cursor:pointer" onclick="var el=document.getElementById(\'cr'+idx+'\');el.style.display=el.style.display===\'none\'?\'block\':\'none\'">';
+    h+='<div class="cb" style="padding:12px 16px"><div style="display:flex;align-items:center;gap:10px">';
+    h+='<div class="av" style="width:44px;height:44px;font-size:18px;background:linear-gradient(135deg,'+(st.overall>=3?"#059669,#047857":st.overall>=2?"#d97706,#b45309":"#dc2626,#b91c1c")+')">'+p.name.charAt(0)+'</div>';
+    h+='<div style="flex:1"><div style="font-weight:700;font-size:15px">'+p.name+'</div>';
+    h+='<div style="display:flex;gap:8px;align-items:center;margin-top:2px"><span style="font-size:12px;color:#7c3aed">'+arch.emoji+' '+arch.name+'</span>';
+    if(p.medical_notes)h+='<span style="font-size:10px;color:var(--o)">\u2695\uFE0F</span>';
+    h+='</div></div>';
+    h+='<div style="text-align:center"><div style="font-size:24px;font-weight:800;color:'+scoreColor+'">'+st.overall.toFixed(1)+'</div>';
+    if(weak.length)h+='<div style="font-size:10px;color:var(--r)">'+weak.length+' weak</div>';
+    else h+='<div style="font-size:10px;color:var(--g)">\u2713</div>';
+    h+='</div></div></div>';
+    
+    // Expanded detail (hidden by default)
+    h+='<div id="cr'+idx+'" style="display:none;padding:0 16px 16px;border-top:1px solid var(--br)">';
+    
+    // Learning style
+    h+='<div style="font-size:12px;color:var(--t2);margin:10px 0;font-style:italic;background:#f8fafc;padding:8px;border-radius:8px">'+getLearningStyle(latSkills)+'</div>';
+    
+    // Visual skill bars — compact
+    const allSorted=Object.entries(latSkills).sort((a,b)=>Number(a[1])-Number(b[1]));
+    allSorted.forEach(([sid,v])=>{
+      const sk=SK[sid];if(!sk)return;const vn=Number(v);
+      h+='<div style="display:flex;align-items:center;gap:6px;padding:3px 0"><span style="font-size:11px;width:85px;color:var(--t2)">'+sk.n+'</span><div style="flex:1;display:flex;gap:2px">';
+      for(let i=1;i<=5;i++)h+='<div style="flex:1;height:6px;border-radius:3px;background:'+(i<=vn?rc(vn):"#e2e8f0")+'"></div>';
+      h+='</div><span style="font-size:11px;font-weight:700;color:'+rc(vn)+';width:20px;text-align:right">'+v+'</span></div>';
+    });
+    
+    // Coach actions
+    const recs=getRecs(latSkills,p.name,p.age);
+    if(recs.coach.length){
+      h+='<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--br)">';
+      h+='<div style="font-size:12px;font-weight:700;color:var(--b);margin-bottom:6px">\uD83D\uDCA1 What to do with '+p.name.split(" ")[0]+':</div>';
+      recs.coach.forEach(r=>{h+='<div style="font-size:12px;padding:3px 0;color:#334155">\u2192 '+r+'</div>'});
+      h+='</div>';
+    }
+    if(p.medical_notes)h+='<div style="margin-top:8px;padding:8px;background:#fef3c7;border-radius:8px;font-size:11px;color:#92400e">\u2695\uFE0F '+p.medical_notes+'</div>';
+    h+='</div></div>';
+  });
+  return h+'</div>';
+}
+
+function vPlans(){
+  const planDetails={
+    bh:{warm:"Dribble relays, ball taps, figure-8 around legs",drill1:"Stationary dribbling: right 30sec, left 30sec, alternating 30sec (x3 rounds)",drill2:"Cone weave: 5 cones, dominant hand only then weak hand only",game:"1v1 King of the Court — must dribble past defender to score",cool:"Ball handling tricks competition — who learns a new move?",eval:"Rate: ball_handling, coordination, effort"},
+    sh:{warm:"Form shooting close to basket, no backboard",drill1:"BEEF stations: Balance check, Eyes on rim, Elbow alignment, Follow-through freeze",drill2:"Spot shooting: 5 spots around the key, 3 shots each",game:"Team shooting competition — first team to 10 makes wins",cool:"Free throw challenge — best of 5",eval:"Rate: shooting, effort, coachability"},
+    pt:{warm:"Partner passing: chest pass, bounce pass, overhead pass",drill1:"Triangle passing: 3 players, move after you pass, 2 min per group",drill2:"Monkey in the middle: 3v1, keep possession with passes only",game:"4v4 — extra point for assists. Count passes before shot.",cool:"Longest accurate pass competition",eval:"Rate: passing, teamwork, court_awareness"},
+    df:{warm:"Defensive slides: cone to cone, 30 sec sets",drill1:"1v1 closeout drill: defender starts under basket, closes out on shooter",drill2:"Shell drill: 4 defenders rotate help positions",game:"3v3 — defense scores point for every steal/turnover",cool:"Defensive slide race — fastest across court",eval:"Rate: defense, speed_agility, effort"},
+    gd:{warm:"Dynamic stretching + light scrimmage",drill1:"5v5 scrimmage — coach stops play to teach positioning",drill2:"Transition drill: fast break 3v2, then 2v1",game:"Full game — coach evaluates all 15 skills during play",cool:"Post-game review: what did you do well? What to improve?",eval:"Rate: ALL 15 skills during game play"},
+    fn:{warm:"Fun relay races with balls",drill1:"Skills challenge stations: dribble maze, passing accuracy, knockout",drill2:"Creative moves contest — invent your own dribble move",game:"Fun game variation: Dribble Tag or Basketball Capture the Flag",cool:"Awards: most creative, most improved, best effort today",eval:"Rate: coordination, leadership, sportsmanship"},
+  };
+  let h='<h2 class="tl">Training Plans</h2><div class="ib" style="margin-bottom:12px">2 hours: Warm-up 10min \u2192 Drill 1 (30min) \u2192 Break \u2192 Drill 2 (30min) \u2192 Break \u2192 Game (30min) \u2192 Cool-down (10min)</div>';
+  PLANS.forEach(p=>{
+    const d=planDetails[p.id]||{};
+    h+='<div class="cd"><div class="ch" style="display:flex;justify-content:space-between"><span>'+p.nm+'</span><span style="color:#d97706;font-size:11px">\u2B50 '+p.life+'</span></div><div class="cb">';
+    if(d.warm)h+='<div style="margin-bottom:8px"><div style="font-size:11px;font-weight:700;color:var(--o)">Warm-up (10 min)</div><div style="font-size:12px;color:var(--t2)">'+d.warm+'</div></div>';
+    if(d.drill1)h+='<div style="margin-bottom:8px"><div style="font-size:11px;font-weight:700;color:var(--b)">Drill 1 (30 min)</div><div style="font-size:12px;color:var(--t2)">'+d.drill1+'</div></div>';
+    if(d.drill2)h+='<div style="margin-bottom:8px"><div style="font-size:11px;font-weight:700;color:var(--b)">Drill 2 (30 min)</div><div style="font-size:12px;color:var(--t2)">'+d.drill2+'</div></div>';
+    if(d.game)h+='<div style="margin-bottom:8px"><div style="font-size:11px;font-weight:700;color:var(--g)">Game (30 min)</div><div style="font-size:12px;color:var(--t2)">'+d.game+'</div></div>';
+    if(d.cool)h+='<div style="margin-bottom:8px"><div style="font-size:11px;font-weight:700;color:#7c3aed">Cool-down (10 min)</div><div style="font-size:12px;color:var(--t2)">'+d.cool+'</div></div>';
+    if(d.eval)h+='<div style="font-size:11px;color:var(--t3);font-style:italic">'+d.eval+'</div>';
+    h+='</div></div>';
+  });
+  return h;
+}
+
+// ═══ PARENT VIEW ══════════════════════
+function vParent(){
+  const ch=S.d.players.find(p=>p.id===S.cid);if(!ch)return "Not found";
+  const st=stats(ch.id);
+  let h='<div class="hd" style="background:linear-gradient(135deg,#047857,#047857dd)"><div><h2>\uD83C\uDFC0 '+ch.name+'</h2><small>Age '+ch.age+' \u00B7 HOST Academy</small></div><div style="display:flex;gap:6px"><button class="hb" onclick="logout()">Logout</button></div></div>';
+  const tabs=[["report","\uD83D\uDCCA Report"],["checkin","\uD83D\uDCDD Check-in"],["feedback","\u2B50 Feedback"]];
+  h+='<div class="nv">'+tabs.map(t=>'<button class="'+(S.pt===t[0]?"a":"")+'" onclick="S.pt=\''+t[0]+'\';R()">'+t[1]+'</button>').join("")+'</div><div class="ct">';
+
+  if(S.pt==="checkin"){h+=vCheckin(ch);return h+'</div>'}
+  if(S.pt==="feedback"){h+=vFeedback(ch);return h+'</div>'}
+
+  // Report
+  h+='<div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:16px;padding:16px;margin-bottom:16px;border:1px solid #a7f3d0"><div style="font-size:16px;font-weight:700;color:#047857">Welcome, '+(ch.parent_name||"Parent")+' \uD83D\uDC4B</div><div style="font-size:13px;color:#065f46">'+ch.name+'\'s development report</div></div>';
+  if(!st){h+='<div style="text-align:center;padding:40px"><div style="font-size:48px">\uD83C\uDFC0</div><div style="font-weight:700;margin-top:8px">No evaluations yet</div></div>';return h+'</div>'}
+
+  const lat=st.latest.skills||{};
+  const recs=getRecs(lat,ch.name,ch.age);
+  const allEv=S.d.evaluations.filter(e=>e.player_id===ch.id&&e.attended);
+  const prevEv=allEv.length>=2?allEv[allEv.length-2]:null;
+  const prevSk=prevEv?prevEv.skills:{};
+
+  // Score card
+  h+='<div style="background:linear-gradient(135deg,#0f172a,#1e40af);border-radius:16px;padding:24px;color:#fff;margin-bottom:16px;text-align:center"><div style="font-size:11px;opacity:.6;letter-spacing:2px;margin-bottom:8px">\uD83C\uDFC0 HOST ACADEMY REPORT</div><div style="display:flex;justify-content:space-around"><div><div style="font-size:36px;font-weight:900">'+st.overall.toFixed(1)+'</div><div style="font-size:11px;opacity:.7">Overall</div></div><div><div style="font-size:36px;font-weight:900">'+st.sessions+'</div><div style="font-size:11px;opacity:.7">Sessions</div></div><div><div style="font-size:36px;font-weight:900">'+st.att.toFixed(0)+'%</div><div style="font-size:11px;opacity:.7">Attendance</div></div></div></div>';
+
+  // Physical
+  if(ch.height_cm||ch.weight_kg){
+    h+='<div style="display:flex;gap:8px;margin-bottom:16px">';
+    if(ch.height_cm)h+='<div style="flex:1;background:#f0f9ff;border-radius:10px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--t2)">Height</div><div style="font-size:18px;font-weight:800;color:#0369a1">'+ch.height_cm+'cm</div></div>';
+    if(ch.weight_kg)h+='<div style="flex:1;background:#f0fdf4;border-radius:10px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--t2)">Weight</div><div style="font-size:18px;font-weight:800;color:#047857">'+ch.weight_kg+'kg</div></div>';
+    h+='<div style="flex:1;background:#fdf4ff;border-radius:10px;padding:10px;text-align:center"><div style="font-size:10px;color:var(--t2)">Age</div><div style="font-size:18px;font-weight:800;color:#7c3aed">'+ch.age+'</div></div></div>';
+  }
+
+  // Medical
+  if(ch.medical_notes)h+='<div class="warn"><b style="color:#92400e">\u2695\uFE0F Medical Note</b><p style="font-size:13px;color:#78350f;margin:4px 0 0">'+ch.medical_notes+'</p></div>';
+
+  // ═══ AI ARCHETYPE CARD ═══
+  const archetype=getArchetype(lat);
+  const ovr=getOverride(ch.id);const ovrData=parseOverride(ovr);
+  const dispArchetype=ovrData&&ovrData.archetype?{name:ovrData.archetype,ar:ovrData.archetype_ar||"",emoji:archetype.emoji}:archetype;
+
+  h+='<div class="cd"><div class="cb" style="display:flex;align-items:center;gap:12px"><div style="width:48px;height:48px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:22px">'+dispArchetype.emoji+'</div><div><div style="font-size:10px;color:var(--t3);letter-spacing:1px">AI PLAYER IDENTITY</div><div style="font-size:18px;font-weight:800;color:#534AB7">'+dispArchetype.name+'</div>'+(dispArchetype.ar?'<div style="font-size:12px;color:#7c3aed">'+dispArchetype.ar+'</div>':'')+'</div></div></div>';
+
+  // ═══ LEARNING STYLE ═══
+  const lStyle=ovrData&&ovrData.learning_style?ovrData.learning_style:getLearningStyle(lat);
+  h+='<div style="background:#f8fafc;border-radius:12px;padding:12px;margin-bottom:12px"><div style="font-size:11px;font-weight:700;color:var(--t2);margin-bottom:4px">How '+ch.name.split(" ")[0]+' learns best</div><p style="font-size:12px;color:var(--t);line-height:1.5;margin:0">'+lStyle+'</p></div>';
+
+  // ═══ IMPROVEMENT VELOCITY ═══
+  if(chSess.length>=2){
+    const firstEv=S.d.evaluations.find(e=>e.session_id===chSess[0].id&&e.player_id===ch.id&&e.attended);
+    const lastEv=S.d.evaluations.find(e=>e.session_id===chSess[chSess.length-1].id&&e.player_id===ch.id&&e.attended);
+    if(firstEv&&lastEv){
+      const fV=Object.values(firstEv.skills).map(Number).filter(v=>v>0);
+      const lV=Object.values(lastEv.skills).map(Number).filter(v=>v>0);
+      const vel=(av(lV)-av(fV))/(chSess.length-1);
+      if(vel>0){
+        const curr=av(lV);const toThree=curr<3?(3-curr)/vel:0;
+        h+='<div style="background:#EEEDFE;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center"><div style="font-size:10px;color:#534AB7;letter-spacing:1px;margin-bottom:4px">IMPROVEMENT SPEED</div><div style="font-size:28px;font-weight:800;color:#3C3489">+'+vel.toFixed(2)+'/week</div><div style="font-size:12px;color:#534AB7">'+(toThree>0?'At this rate, reaches "Good" level in ~'+Math.ceil(toThree)+' weeks':'Already at "Good" level or above!')+'</div></div>';
+      }
+    }
+  }
+
+  // ═══ AI PATTERNS ═══
+  const pEvs=allEv.map(e=>({skills:e.skills}));
+  const patterns=getPatterns(pEvs);
+  if(patterns.length){
+    h+='<div class="cd"><div class="ch">AI discovered patterns / أنماط اكتشفها الذكاء الاصطناعي</div><div class="cb">';
+    patterns.forEach(p=>{
+      const color=p.type==="up"?"#059669":p.type==="down"?"#dc2626":"#7c3aed";
+      h+='<div style="padding:6px 0;border-bottom:1px solid #f1f5f9"><div style="font-size:12px;font-weight:700;color:'+color+'">'+p.text+'</div></div>';
+    });
+    h+='</div></div>';
+  }
+
+  // ═══ CUSTOM ADMIN MESSAGE ═══
+  if(ovrData&&ovrData.message){
+    h+='<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px;margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:#1e40af;margin-bottom:4px">\uD83D\uDCAC Coach Message / رسالة المدرب</div><p style="font-size:13px;color:#1e3a5f;line-height:1.5;margin:0">'+ovrData.message+'</p></div>';
+  }
+
+  // ═══ SESSION TIMELINE ═══
+  const chSess=S.d.sessions.filter(s=>S.d.evaluations.some(e=>e.session_id===s.id&&e.player_id===ch.id&&e.attended));
+  if(chSess.length>1){
+    h+='<div class="cd"><div class="ch">\uD83D\uDCC8 Progress Timeline / مسار التقدم</div><div class="cb"><div style="display:flex;align-items:center;gap:4px;overflow-x:auto;padding-bottom:8px">';
+    chSess.forEach((s,i)=>{
+      const ev=S.d.evaluations.find(e=>e.session_id===s.id&&e.player_id===ch.id&&e.attended);
+      const sk=ev?ev.skills:{};const vals=Object.values(sk).map(Number).filter(v=>v>0);
+      const avg2=vals.length?av(vals):0;
+      const isLast=i===chSess.length-1;
+      h+='<div style="flex:1;min-width:70px;text-align:center"><div style="font-size:10px;color:var(--t3)">'+fd(s.date).split(" ").slice(0,2).join(" ")+'</div><div style="font-size:22px;font-weight:900;color:'+(isLast?"var(--b)":"var(--t3)")+'">'+avg2.toFixed(1)+'</div><div style="font-size:9px;color:var(--t3)">Session '+(i+1)+'</div></div>';
+      if(i<chSess.length-1)h+='<div style="font-size:16px;color:var(--t3)">\u2192</div>';
+    });
+    h+='</div>';
+    // Overall trend
+    const firstEv=S.d.evaluations.find(e=>e.session_id===chSess[0].id&&e.player_id===ch.id&&e.attended);
+    const lastEv=S.d.evaluations.find(e=>e.session_id===chSess[chSess.length-1].id&&e.player_id===ch.id&&e.attended);
+    if(firstEv&&lastEv){
+      const fVals=Object.values(firstEv.skills).map(Number).filter(v=>v>0);
+      const lVals=Object.values(lastEv.skills).map(Number).filter(v=>v>0);
+      const fAvg=av(fVals);const lAvg=av(lVals);const diff=lAvg-fAvg;
+      if(diff>0.2)h+='<div style="text-align:center;margin-top:8px;padding:8px;background:#ecfdf5;border-radius:8px"><span style="font-size:18px">\uD83D\uDE80</span> <b style="color:#047857">+'+diff.toFixed(1)+' improvement since first session!</b></div>';
+      else if(diff>0)h+='<div style="text-align:center;margin-top:8px;padding:8px;background:#f0fdf4;border-radius:8px"><span style="font-size:18px">\uD83D\uDCC8</span> <b style="color:#059669">+'+diff.toFixed(1)+' positive trend</b></div>';
+    }
+    h+='</div></div>';
+  }
+
+  // ═══ THIS WEEK VS LAST WEEK ═══
+  if(prevEv){
+    const latVals=Object.values(lat).map(Number).filter(v=>v>0);
+    const prevVals=Object.values(prevSk).map(Number).filter(v=>v>0);
+    const latAvg=av(latVals);const prevAvg=av(prevVals);const wkDiff=latAvg-prevAvg;
+    const improved=[];const dropped=[];const stable=[];
+    Object.keys(lat).forEach(sid=>{
+      const curr=Number(lat[sid])||0;const prev=Number(prevSk[sid])||0;
+      if(!curr||!prev)return;
+      if(curr>prev)improved.push([sid,prev,curr]);
+      else if(curr<prev)dropped.push([sid,prev,curr]);
+      else stable.push([sid,curr]);
+    });
+    h+='<div class="cd"><div class="ch">\uD83D\uDD04 This Week vs Last Week / هذا الأسبوع مقارنة بالسابق</div><div class="cb">';
+    h+='<div style="text-align:center;margin-bottom:12px"><span style="font-size:28px;font-weight:900;color:'+(wkDiff>0?"var(--g)":wkDiff<0?"var(--r)":"var(--t2)")+'">'+(wkDiff>0?"+":"")+wkDiff.toFixed(1)+'</span><div style="font-size:12px;color:var(--t2)">overall change / التغيير الإجمالي</div></div>';
+    if(improved.length){
+      h+='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:700;color:var(--g);margin-bottom:6px">\uD83D\uDCC8 Improved / تحسن</div>';
+      improved.forEach(([sid,prev,curr])=>{const sk=SK[sid];if(!sk)return;h+='<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:13px"><span style="color:var(--g);font-weight:700;width:20px">\u2191</span><span style="flex:1">'+sk.n+'</span><span style="color:var(--t3)">'+prev+'</span><span>\u2192</span><span style="color:var(--g);font-weight:800">'+curr+'</span></div>'});
+      h+='</div>';
+    }
+    if(dropped.length){
+      h+='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:700;color:var(--r);margin-bottom:6px">\uD83D\uDCC9 Needs attention / يحتاج اهتمام</div>';
+      dropped.forEach(([sid,prev,curr])=>{const sk=SK[sid];if(!sk)return;h+='<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:13px"><span style="color:var(--r);font-weight:700;width:20px">\u2193</span><span style="flex:1">'+sk.n+'</span><span style="color:var(--t3)">'+prev+'</span><span>\u2192</span><span style="color:var(--r);font-weight:800">'+curr+'</span></div>'});
+      h+='</div>';
+    }
+    if(stable.length){
+      h+='<div><div style="font-size:12px;font-weight:700;color:var(--t3);margin-bottom:6px">\u2794 Stable / مستقر ('+stable.length+' skills)</div></div>';
+    }
+    h+='</div></div>';
+  }
+
+  // ═══ ALL 15 SKILLS — HORIZONTAL BARS ═══
+  h+='<div style="font-weight:700;font-size:16px;margin:20px 0 12px">\uD83C\uDFC0 All Skills / جميع المهارات</div>';
+  RCATS.forEach(cat=>{
+    h+='<div class="cd" style="margin-bottom:10px"><div class="ch" style="color:'+cat.cl+';border-left:4px solid '+cat.cl+'">'+cat.ic+' '+cat.nm+' / '+cat.ar+'</div><div class="cb" style="padding:12px 16px">';
+    cat.sk.forEach(sid=>{
+      const v=Number(lat[sid])||0;if(!v)return;
+      const sk=SK[sid];if(!sk)return;
+      const pv=Number(prevSk[sid])||0;
+      const diff=pv?v-pv:0;
+      const arrow=diff>0?'<span style="color:var(--g);font-weight:700;font-size:11px"> \u2191+'+diff+'</span>':diff<0?'<span style="color:var(--r);font-weight:700;font-size:11px"> \u2193'+diff+'</span>':'';
+      const emoji=v>=4?"\uD83C\uDF1F":v>=3?"\uD83D\uDC4D":v>=2?"\uD83C\uDFC0":"\uD83D\uDCAA";
+      h+='<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px"><span style="font-size:12px;font-weight:600">'+emoji+' '+sk.n+' <span style="color:var(--t3);font-size:10px">'+sk.a+'</span></span><span style="font-weight:800;color:'+rc(v)+'">'+v+'/5'+arrow+'</span></div>';
+      h+='<div style="display:flex;gap:3px">';
+      for(let i=1;i<=5;i++)h+='<div style="flex:1;height:8px;border-radius:4px;background:'+(i<=v?rc(v):"#e2e8f0")+'"></div>';
+      h+='</div></div>';
+    });
+    h+='</div></div>';
+  });
+
+  // ═══ DETAILED ANALYSIS (top skills) ═══
+  h+='<div style="font-weight:700;font-size:16px;margin:20px 0 12px">\uD83D\uDCCB Coach Analysis / تحليل المدرب</div>';
+  // Strengths
+  const strong=Object.entries(lat).filter(([k,v])=>Number(v)>=4).sort((a,b)=>Number(b[1])-Number(a[1]));
+  if(strong.length){
+    h+='<div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:14px;margin-bottom:12px"><div style="font-weight:700;color:#047857;margin-bottom:8px">\uD83C\uDF1F Strengths / نقاط القوة</div>';
+    strong.forEach(([sid,v])=>{const sk=SK[sid];if(!sk)return;const txt=skTxt(sid,Number(v),ch.name);
+      h+='<div style="padding:6px 0;border-bottom:1px solid #d1fae5"><div style="display:flex;justify-content:space-between"><span style="font-weight:600;font-size:13px">'+sk.n+' \u2014 '+sk.a+'</span><span style="font-weight:800;color:#047857">'+v+'/5</span></div><p style="font-size:11px;color:#065f46;margin:2px 0 0">'+txt+'</p></div>'});
+    h+='</div>';
+  }
+
+  // Focus areas
+  const weak=Object.entries(lat).filter(([k,v])=>Number(v)<=2).sort((a,b)=>Number(a[1])-Number(b[1]));
+  if(weak.length){
+    h+='<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:14px;margin-bottom:12px"><div style="font-weight:700;color:#dc2626;margin-bottom:8px">\uD83C\uDFAF Focus Areas / مجالات التطوير</div>';
+    weak.forEach(([sid,v])=>{const sk=SK[sid];if(!sk)return;const txt=skTxt(sid,Number(v),ch.name);const tgt=Math.min(Number(v)+1,5);
+      h+='<div style="padding:6px 0;border-bottom:1px solid #fecaca"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:13px">'+sk.n+' \u2014 '+sk.a+'</span><span style="font-size:12px"><span style="color:var(--r);font-weight:800">'+v+'</span> \u2192 <span style="color:var(--g);font-weight:800">'+tgt+'</span></span></div><p style="font-size:11px;color:#991b1b;margin:2px 0 0">'+txt+'</p></div>'});
+    h+='</div>';
+  }
+
+  // Middle skills
+  const mid=Object.entries(lat).filter(([k,v])=>Number(v)===3).sort();
+  if(mid.length){
+    h+='<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px;margin-bottom:12px"><div style="font-weight:700;color:#d97706;margin-bottom:8px">\uD83D\uDC4D Good & Growing / جيد ومتطور ('+mid.length+' skills)</div>';
+    mid.forEach(([sid,v])=>{const sk=SK[sid];if(!sk)return;
+      h+='<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:13px"><span>'+sk.n+' \u2014 '+sk.a+'</span><span style="font-weight:700;color:#d97706">'+v+'/5</span></div>'});
+    h+='</div>';
+  }
+
+  // ═══ IMPROVEMENT VELOCITY ═══
+  if(chSess.length>=2){
+    const weeks=chSess.length;
+    const firstEv2=S.d.evaluations.find(e=>e.session_id===chSess[0].id&&e.player_id===ch.id&&e.attended);
+    const lastEv2=S.d.evaluations.find(e=>e.session_id===chSess[chSess.length-1].id&&e.player_id===ch.id&&e.attended);
+    if(firstEv2&&lastEv2){
+      const fV=Object.values(firstEv2.skills).map(Number).filter(v=>v>0);
+      const lV=Object.values(lastEv2.skills).map(Number).filter(v=>v>0);
+      const velocity=(av(lV)-av(fV))/(weeks-1);
+      if(velocity>0){
+        const current=av(lV);const toThree=current<3?(3-current)/velocity:0;
+        h+='<div style="background:linear-gradient(135deg,#1e40af,#7c3aed);border-radius:12px;padding:16px;color:#fff;margin:16px 0;text-align:center"><div style="font-size:11px;opacity:.7;margin-bottom:4px">\u26A1 IMPROVEMENT SPEED / سرعة التحسن</div><div style="font-size:32px;font-weight:900">+'+velocity.toFixed(2)+'/week</div><div style="font-size:12px;opacity:.8;margin-top:4px">'+(toThree>0?'At this rate, reaches "Good" level in ~'+Math.ceil(toThree)+' weeks':'Already at "Good" level or above \u2014 keep going!')+'</div></div>';
+      }
+    }
+  }
+
+  // ═══ PERSONALIZED WEEKLY MESSAGE ═══
+  const latVals2=Object.values(lat).map(Number).filter(v=>v>0);const latAvg2=av(latVals2);
+  const bestSkill=Object.entries(lat).sort((a,b)=>Number(b[1])-Number(a[1]))[0];
+  const worstSkill=Object.entries(lat).sort((a,b)=>Number(a[1])-Number(b[1]))[0];
+  const bestName=bestSkill&&SK[bestSkill[0]]?SK[bestSkill[0]].n:"";
+  const worstName=worstSkill&&SK[worstSkill[0]]?SK[worstSkill[0]].n:"";
+  h+='<div style="background:linear-gradient(135deg,#047857,#059669);border-radius:12px;padding:16px;color:#fff;margin:16px 0"><div style="font-weight:700;margin-bottom:8px">\uD83D\uDCAC This Week\'s Message / رسالة الأسبوع</div><p style="font-size:13px;line-height:1.6;opacity:.95">';
+  if(latAvg2>=3.5)h+=ch.name+' is doing excellent work! Strongest area: '+bestName+'. Challenge for next week: push '+worstName+' to the next level.';
+  else if(latAvg2>=2.5)h+=ch.name+' is making real progress! '+bestName+' is a real strength. This week, focus on '+worstName+' practice at home \u2014 even 5 minutes daily makes a difference.';
+  else h+=ch.name+' is building foundations every session. The most important thing right now is showing up, trying hard, and having fun. Every champion started exactly here.';
+  h+='</p></div>';
+
+  // ═══ HOME ACTIVITIES ═══
+  if(recs.parent.length){
+    h+='<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:16px;margin:16px 0"><div style="font-weight:700;color:#c2410c;margin-bottom:10px">\uD83C\uDFE0 This Week at Home / هذا الأسبوع في المنزل</div>';
+    recs.parent.forEach((r,i)=>{
+      h+='<div class="chk" id="ha'+i+'" onclick="this.classList.toggle(\'done\')"><span style="font-size:18px">\u2705</span><div><div style="font-weight:600;font-size:12px">'+r.skill+' \u2014 '+r.skillAr+'</div><div style="font-size:11px;color:#7c2d12">'+r.en+'</div><div style="font-size:11px;color:#9a3412;direction:rtl;text-align:right">'+r.ar+'</div></div></div>';
+    });
+    h+='</div>';
+  }
+
+  // ═══ SESSION HISTORY (expandable) ═══
+  if(chSess.length>1){
+    h+='<div class="cd"><div class="ch">\uD83D\uDCC5 Session History / سجل الجلسات</div><div class="cb">';
+    chSess.slice().reverse().forEach((s,si)=>{
+      const ev=S.d.evaluations.find(e=>e.session_id===s.id&&e.player_id===ch.id&&e.attended);
+      if(!ev)return;const sk=ev.skills||{};
+      const vals=Object.values(sk).map(Number).filter(v=>v>0);const savg=av(vals);
+      h+='<div style="padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer" onclick="var el=document.getElementById(\'sh'+si+'\');el.style.display=el.style.display===\'none\'?\'block\':\'none\'">';
+      h+='<div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:700;font-size:14px">'+fd(s.date)+'</div><div style="font-size:11px;color:var(--t3)">Coach: '+(s.coach||"\u2014")+' \u00B7 '+vals.length+' skills rated</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:900;color:'+rc(savg)+'">'+savg.toFixed(1)+'</div><div style="font-size:10px;color:var(--t3)">tap to expand</div></div></div>';
+      h+='<div id="sh'+si+'" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0">';
+      Object.entries(sk).forEach(([sid2,v2])=>{
+        const skInfo=SK[sid2];if(!skInfo||!v2)return;
+        h+='<div style="display:flex;justify-content:space-between;padding:2px 0;font-size:12px"><span style="color:var(--t2)">'+skInfo.n+'</span><span style="font-weight:700;color:'+rc(Number(v2))+'">'+v2+'/5</span></div>';
+      });
+      h+='</div></div>';
+    });
+    h+='</div></div>';
+  }
+
+  // Parent letter
+  h+='<div style="background:#fdf4ff;border:1px solid #e9d5ff;border-radius:12px;padding:16px;margin:16px 0"><div style="font-weight:700;color:#7c3aed;margin-bottom:8px">\uD83D\uDCAC Dear Parent / عزيزي ولي الأمر</div><p style="font-size:13px;color:#4c1d95;line-height:1.6;margin:0">Your child is on a journey. The numbers are not grades \u2014 they are a map showing where we are and where we\'re going together. Your encouragement at home is just as important as our coaching on the court.</p></div>';
+
+  h+='<div style="text-align:center;padding:20px;font-size:11px;color:var(--t3)">HOST Academy v3.0 \u00B7 Powered by AI</div>';
+  return h+'</div>';
+}
+
+function vCheckin(ch){
+  const now=new Date();const ws=new Date(now);ws.setDate(now.getDate()-now.getDay());
+  const ex=S.d.messages.find(m=>String(m.text).startsWith("PRE-TRAINING:")&&String(m.from_name).includes(ch.name)&&m.date&&new Date(m.date)>=ws);
+  let h='<div style="text-align:center;margin-bottom:16px"><span style="font-size:36px">\uD83D\uDCDD</span><h3 style="margin:8px 0">Pre-Training Check-in</h3><p style="font-size:12px;color:var(--t2)">Fill Saturday morning | صباح السبت</p></div>';
+  if(ex)h+='<div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:14px;text-align:center;margin-bottom:16px"><b style="color:#047857">\u2705 Submitted! | تم الإرسال</b><br><span style="font-size:12px;color:#065f46">'+fd(ex.date)+'</span></div>';
+  h+='<div class="cd"><div class="cb"><div class="fg"><label class="fl">\uD83D\uDE34 Sleep hours</label><select class="fi" id="pc_s"><option value="">Select</option><option>Less than 6</option><option>6-7</option><option>7-8</option><option>8-9</option><option>9-10</option><option>More than 10</option></select></div>';
+  h+='<div class="fg"><label class="fl">\uD83C\uDF7D\uFE0F Last meal</label><select class="fi" id="pc_m"><option value="">Select</option><option>Less than 1hr</option><option>1-2hrs</option><option>2-3hrs</option><option>3hrs+</option></select></div>';
+  h+='<div class="fg"><label class="fl">\uD83D\uDE0A Mood</label><select class="fi" id="pc_d"><option value="">Select</option><option value="energetic">\uD83D\uDE0A Energetic</option><option value="normal">\uD83D\uDE10 Normal</option><option value="tired">\uD83D\uDE1F Tired</option></select></div>';
+  h+='<div class="fg"><label class="fl">\uD83C\uDFE5 Health issues?</label><input class="fi" id="pc_h" placeholder="No / لا"></div>';
+  h+='<button class="bp bf bl" onclick="subCheckin()">\u2713 '+(ex?"Update":"Submit")+'</button></div></div>';
+  return h;
+}
+
+function subCheckin(){
+  const ch=S.d.players.find(p=>p.id===S.cid);
+  const s=document.getElementById("pc_s").value,m=document.getElementById("pc_m").value,d=document.getElementById("pc_d").value,hl=document.getElementById("pc_h").value||"OK";
+  if(!s||!m||!d){toast("Fill all fields");return}
+  post({action:"sendMessage",message:{id:gid(),date:new Date().toISOString(),from_name:ch.name+" (Parent)",text:"PRE-TRAINING: Sleep: "+s+" | Meal: "+m+" | Mood: "+d+" | Health: "+hl,type:"parent_checkin"}}).then(ok=>{if(ok){toast("Submitted! \u2705");S.pt="report";R()}});
+}
+
+function vFeedback(ch){
+  const tm=new Date().toISOString().slice(0,7);
+  const ex=S.d.messages.find(m=>String(m.text).startsWith("MONTHLY")&&String(m.from_name).includes(ch.name)&&m.date&&m.date.slice(0,7)===tm);
+  let h='<div style="text-align:center;margin-bottom:16px"><span style="font-size:36px">\u2B50</span><h3 style="margin:8px 0">Monthly Feedback</h3></div>';
+  if(ex)h+='<div style="background:#ede9fe;border:1px solid #c4b5fd;border-radius:12px;padding:14px;text-align:center;margin-bottom:16px"><b style="color:#6d28d9">\u2705 Submitted!</b><br><span style="font-size:12px">'+fd(ex.date)+'</span></div>';
+  h+='<div class="cd"><div class="cb">';
+  [["pf_t","\u2B50 Training quality","\u062C\u0648\u062F\u0629 \u0627\u0644\u062A\u062F\u0631\u064A\u0628"],["pf_c","\uD83D\uDC68\u200D\uD83C\uDFEB Coach","\u0627\u0644\u0645\u062F\u0631\u0628"],["pf_a","\uD83D\uDCF1 App","\u0627\u0644\u062A\u0637\u0628\u064A\u0642"]].forEach(([id,en,ar])=>{
+    h+='<div class="fg"><label class="fl">'+en+' / '+ar+'</label><select class="fi" id="'+id+'"><option value="">Select</option><option value="5">5 Excellent</option><option value="4">4 Very Good</option><option value="3">3 Good</option><option value="2">2 Fair</option><option value="1">1 Poor</option></select></div>';
+  });
+  h+='<div class="fg"><label class="fl">Excited for training?</label><select class="fi" id="pf_e"><option value="">Select</option><option>Always</option><option>Usually</option><option>Sometimes</option><option>Rarely</option></select></div>';
+  h+='<div class="fg"><label class="fl">Recommend HOST?</label><select class="fi" id="pf_r"><option value="">Select</option><option>Definitely!</option><option>Probably</option><option>Not sure</option><option>No</option></select></div>';
+  h+='<div class="fg"><label class="fl">Suggestions</label><textarea class="fi" id="pf_x"></textarea></div>';
+  h+='<button class="bp bf bl" onclick="subFB()">\u2713 '+(ex?"Update":"Submit")+'</button></div></div>';
+  return h;
+}
+
+function subFB(){
+  const ch=S.d.players.find(p=>p.id===S.cid);
+  const t=document.getElementById("pf_t").value,c=document.getElementById("pf_c").value;
+  if(!t||!c){toast("Rate training & coach");return}
+  const a=document.getElementById("pf_a").value,e=document.getElementById("pf_e").value,r=document.getElementById("pf_r").value,x=document.getElementById("pf_x").value;
+  post({action:"sendMessage",message:{id:gid(),date:new Date().toISOString(),from_name:(ch.parent_name||"Parent")+" \u2192 "+ch.name,text:"MONTHLY FEEDBACK: Training:"+t+"/5 Coach:"+c+"/5 App:"+(a||"-")+"/5 Excited:"+(e||"-")+" Recommend:"+(r||"-")+" Notes:"+(x||"None"),type:"parent_feedback"}}).then(ok=>{if(ok){toast("Thank you! \uD83D\uDE4F");S.pt="report";R()}});
+}
+
+// ═══ KID VIEW ═════════════════════════
+function vKid(){
+  const ch=S.d.players.find(p=>p.id===S.cid);if(!ch)return "Not found";
+  const st=stats(ch.id);
+  let h='<div class="hd" style="background:linear-gradient(135deg,#0891b2,#0e7490)"><div><h2>\uD83C\uDFC0 '+ch.name+'</h2><small>Player Portal | بوابة اللاعب</small></div><div style="display:flex;gap:6px"><button class="hb" onclick="logout()">Logout</button></div></div>';
+  const tabs=[["scores","\uD83C\uDFC6 My Scores"],["rate","\u2B50 Rate Session"],["msgs","\uD83D\uDCAC Messages"]];
+  h+='<div class="nv">'+tabs.map(t=>'<button class="'+(S.kt===t[0]?"a":"")+'" onclick="S.kt=\''+t[0]+'\';R()">'+t[1]+'</button>').join("")+'</div><div class="ct">';
+
+  if(S.kt==="rate"){
+    h+='<div style="text-align:center;margin-bottom:16px"><div style="font-size:48px">\u2B50</div><h3 style="margin:8px 0">How was today? | كيف كان اليوم؟</h3></div>';
+    h+='<div class="cd"><div class="cb">';
+    h+='<div class="fg"><label class="fl">\uD83C\uDFC0 Was it fun? / هل كان ممتع؟</label><select class="fi" id="kr_f"><option value="">Select</option><option value="amazing">\uD83E\uDD29 Amazing!</option><option value="fun">\uD83D\uDE04 Fun!</option><option value="ok">\uD83D\uDE10 OK</option><option value="boring">\uD83D\uDE15 Boring</option><option value="bad">\uD83D\uDE1E Bad</option></select></div>';
+    h+='<div class="fg"><label class="fl">\uD83D\uDCA1 Did you learn something new? / هل تعلمت شيء جديد؟</label><select class="fi" id="kr_l"><option value="">Select</option><option value="yes">\u2705 Yes!</option><option value="alittle">\uD83E\uDD14 A little</option><option value="no">\u274C No</option></select></div>';
+    h+='<div class="fg"><label class="fl">\uD83C\uDFAF What do you want to practice? / ماذا تريد أن تتمرن؟</label><input class="fi" id="kr_p" placeholder="e.g. shooting, dribbling..."></div>';
+    h+='<div class="fg"><label class="fl">\uD83D\uDCAC Anything else? / أي شيء آخر؟</label><textarea class="fi" id="kr_t" placeholder="Tell us..."></textarea></div>';
+    h+='<button class="bp bf bl" onclick="subKidRate()">\u2713 Submit / إرسال</button></div></div>';
+    h+='</div>';return h;
+  }
+
+  if(S.kt==="msgs"){
+    const msgs=S.d.messages.filter(m=>!m.type||m.type==="announcement").slice(0,10);
+    h+='<h2 class="tl">\uD83D\uDCAC Messages / \u0627\u0644\u0631\u0633\u0627\u0626\u0644</h2>';
+    if(!msgs.length)h+='<div class="ib">No messages yet! | لا توجد رسائل بعد</div>';
+    msgs.forEach(m=>{h+='<div class="cd"><div class="cb"><div style="font-size:11px;color:var(--t3)">'+fd(m.date)+'</div><div style="font-size:14px;margin-top:2px">'+m.text+'</div></div></div>'});
+    h+='</div>';return h;
+  }
+
+  // Scores
+  h+='<div style="text-align:center;margin-bottom:16px"><div style="font-size:48px">\uD83C\uDFC6</div><h3 style="margin:8px 0">My Progress / تقدمي</h3></div>';
+  if(!st){h+='<div class="ib" style="text-align:center;padding:20px">No scores yet! Keep training! \uD83C\uDFC0<br>لا توجد نتائج بعد! استمر في التدريب!</div>';return h+'</div>'}
+
+  h+='<div style="background:linear-gradient(135deg,#0891b2,#0e7490);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px;text-align:center"><div style="font-size:48px;font-weight:900">'+st.overall.toFixed(1)+'</div><div style="font-size:14px;opacity:.8">My Score / نتيجتي</div></div>';
+
+  // Simple skill bars for kids
+  RCATS.forEach(cat=>{
+    cat.sk.forEach(sid=>{
+      const sd=st.bySk[sid];if(!sd)return;const sk=SK[sid];if(!sk)return;
+      const v=Math.round(sd.avg);const emoji=v>=4?"\uD83C\uDF1F":v>=3?"\uD83D\uDC4D":v>=2?"\uD83D\uDCAA":"\uD83C\uDFC0";
+      h+='<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9"><span style="font-size:20px;width:30px;text-align:center">'+emoji+'</span><div style="flex:1"><div style="font-size:13px;font-weight:600">'+sk.n+'</div><div class="pb" style="margin-top:4px"><div class="pf" style="width:'+v*20+'%;background:'+rc(v)+'"></div></div></div><span style="font-weight:800;color:'+rc(v)+'">'+v+'/5</span></div>';
+    });
+  });
+
+  // Kid challenge
+  const recs=getRecs(st.latest.skills,ch.name,ch.age);
+  if(recs.child.length){
+    h+='<div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:14px;margin-top:16px"><div style="font-weight:700;color:#92400e;margin-bottom:6px">\uD83C\uDFAF Your Challenge This Week!</div>';
+    recs.child.forEach(c=>{h+='<div style="font-size:13px;color:#78350f;padding:4px 0">\u2192 '+c+'</div>'});
+    h+='</div>';
+  }
+
+  h+='</div>';return h;
+}
+
+function subKidRate(){
+  const ch=S.d.players.find(p=>p.id===S.cid);
+  const f=document.getElementById("kr_f").value,l=document.getElementById("kr_l").value,pr=document.getElementById("kr_p").value,t=document.getElementById("kr_t").value;
+  if(!f||!l){toast("Answer the first 2 questions");return}
+  post({action:"sendMessage",message:{id:gid(),date:new Date().toISOString(),from_name:ch.name+" (Player)",text:"KID RATING: Fun:"+f+" Learned:"+l+" WantToPractice:"+(pr||"-")+" Notes:"+(t||"-"),type:"kid_rating"}}).then(ok=>{if(ok){toast("Thanks! \uD83C\uDFC0");S.kt="scores";R()}});
+}
+
+// ═══ ADMIN VIEW ═══════════════════════
+function vAdmin(){
+  let h='<div class="hd" style="background:linear-gradient(135deg,#6d28d9,#6d28d9dd)"><div><h2>\uD83C\uDFC0 Admin / \u0627\u0644\u0625\u062F\u0627\u0631\u0629</h2></div><div style="display:flex;gap:6px"><button class="hb" onclick="logout()">Logout</button></div></div>';
+  const tabs=[["players","\uD83D\uDC65","Players / \u0627\u0644\u0644\u0627\u0639\u0628\u064A\u0646"],["messages","\uD83D\uDCE2","Messages / \u0627\u0644\u0631\u0633\u0627\u0626\u0644"],["data","\uD83D\uDCBE","Data / \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A"]];
+  h+='<div class="nv">'+tabs.map(t=>'<button class="'+(S.at===t[0]?"a":"")+'" onclick="S.at=\''+t[0]+'\';S.sp=null;R()"><span style="font-size:18px">'+t[1]+'</span>'+t[2]+'</button>').join("")+'</div><div class="ct">';
+  if(S.at==="players")h+=vAP();
+  else if(S.at==="messages")h+=vAM();
+  else if(S.at==="data")h+=vAD();
+  return h+'</div>';
+}
+
+function vAP(){
+  if(S.sp)return vAR();
+  const pl=S.d.players;
+  if(!S.adminSort)S.adminSort="score";
+  let h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><h2 class="tl" style="margin:0">Players ('+pl.length+')</h2><button class="bp" onclick="document.getElementById(\'af\').classList.toggle(\'hid\')">+ Add / \u0625\u0636\u0627\u0641\u0629</button></div>';
+  h+='<div id="af" class="hid cd"><div class="ch">Add Player</div><div class="cb"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="fg"><label class="fl">Name / \u0627\u0644\u0627\u0633\u0645 *</label><input class="fi" id="np_n"></div><div class="fg"><label class="fl">Age / \u0627\u0644\u0639\u0645\u0631</label><input class="fi" id="np_a" type="number"></div><div class="fg"><label class="fl">Height / \u0627\u0644\u0637\u0648\u0644 cm</label><input class="fi" id="np_h" type="number"></div><div class="fg"><label class="fl">Weight / \u0627\u0644\u0648\u0632\u0646 kg</label><input class="fi" id="np_w" type="number"></div><div class="fg"><label class="fl">Parent / \u0648\u0644\u064A \u0627\u0644\u0623\u0645\u0631</label><input class="fi" id="np_p"></div><div class="fg"><label class="fl">Phone / \u0627\u0644\u0647\u0627\u062A\u0641</label><input class="fi" id="np_ph"></div></div><div class="fg"><label class="fl">Medical / \u0637\u0628\u064A</label><input class="fi" id="np_m"></div><button class="bp" onclick="addP()">Save</button></div></div>';
+  
+  // Sort buttons
+  h+='<div style="display:flex;gap:6px;margin-bottom:12px">';
+  ["score","name","age"].forEach(s=>{h+='<button style="flex:1;padding:8px;border:1px solid '+(S.adminSort===s?"var(--b)":"var(--br)")+';border-radius:8px;background:'+(S.adminSort===s?"#eff6ff":"transparent")+';color:'+(S.adminSort===s?"var(--b)":"var(--t2)")+';font-size:12px;font-weight:600;cursor:pointer" onclick="S.adminSort=\''+s+'\';R()">'+(s==="score"?"By Score / \u0628\u0627\u0644\u0646\u062A\u064A\u062C\u0629":s==="name"?"By Name / \u0628\u0627\u0644\u0627\u0633\u0645":"By Age / \u0628\u0627\u0644\u0639\u0645\u0631")+'</button>'});
+  h+='</div>';
+  
+  // Sort players
+  let sorted=[...pl];
+  if(S.adminSort==="score")sorted.sort((a,b)=>{const sa=stats(a.id),sb=stats(b.id);return(sb?sb.overall:0)-(sa?sa.overall:0)});
+  else if(S.adminSort==="name")sorted.sort((a,b)=>a.name.localeCompare(b.name));
+  else sorted.sort((a,b)=>(a.age||0)-(b.age||0));
+  
+  sorted.forEach(p=>{
+    const st2=stats(p.id);
+    const arch=st2?getArchetype(st2.latest.skills||{}):{emoji:"\uD83C\uDFC0",name:"New"};
+    const scoreColor=st2?(st2.overall>=3?"var(--g)":st2.overall>=2?"var(--o)":"var(--r)"):"var(--t3)";
+    
+    h+='<div class="cd" style="cursor:pointer;opacity:'+(p.active!==false?1:.5)+'" onclick="S.sp=\''+p.id+'\';R()">';
+    h+='<div class="cb" style="padding:12px 16px"><div style="display:flex;align-items:center;gap:10px">';
+    h+='<div class="av" style="width:48px;height:48px;font-size:20px">'+p.name.charAt(0)+'</div>';
+    h+='<div style="flex:1"><div style="font-weight:700;font-size:15px">'+p.name+(p.age?" ("+p.age+")":"")+'</div>';
+    h+='<div style="font-size:12px;color:var(--t2)">'+(p.parent_name||"\u2014")+' \u00B7 PIN: <b>'+p.parent_pin+'</b></div>';
+    h+='<div style="display:flex;gap:6px;margin-top:3px">';
+    if(st2)h+='<span style="font-size:10px;color:#7c3aed;background:#ede9fe;padding:1px 8px;border-radius:10px">'+arch.emoji+' '+arch.name+'</span>';
+    if(st2)h+='<span style="font-size:10px;color:var(--t3)">'+st2.sessions+' sessions</span>';
+    if(p.medical_notes)h+='<span style="font-size:10px;color:var(--o)">\u2695\uFE0F</span>';
+    h+='</div></div>';
+    // Score on right
+    if(st2)h+='<div style="text-align:center"><div style="font-size:28px;font-weight:800;color:'+scoreColor+'">'+st2.overall.toFixed(1)+'</div><div style="font-size:10px;color:var(--t3)">/5</div></div>';
+    else h+='<div style="font-size:12px;color:var(--t3)">No data</div>';
+    h+='</div></div></div>';
+  });
+  return h;
+}
+
+async function addP(){
+  const n=document.getElementById("np_n").value.trim();if(!n){toast("Enter name");return}
+  const pin=String(Math.floor(1000+Math.random()*9000));
+  if(await post({action:"addPlayer",player:{id:gid(),name:n,age:document.getElementById("np_a").value,height_cm:document.getElementById("np_h").value,weight_kg:document.getElementById("np_w").value,parent_name:document.getElementById("np_p").value.trim(),parent_phone:document.getElementById("np_ph").value.trim(),parent_pin:pin,medical_notes:document.getElementById("np_m").value.trim()}})){toast(n+" added (PIN: "+pin+")");R()}
+}
+
+function vAR(){
+  if(!S.sp){
+    let h='<h2 class="tl">Reports</h2>';
+    S.d.players.filter(p=>p.active!==false).forEach(p=>{const st2=stats(p.id);const arch=st2?getArchetype(st2.latest.skills||{}):{emoji:"\uD83C\uDFC0",name:""};h+='<div class="cd" style="cursor:pointer" onclick="S.sp=\''+p.id+'\';R()"><div class="cb"><div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:10px"><div class="av">'+p.name.charAt(0)+'</div><div><div style="font-weight:700">'+p.name+(st2?' <span style="font-size:11px;color:#7c3aed">'+arch.emoji+' '+arch.name+'</span>':'')+'</div><div style="font-size:12px;color:var(--t2)">'+(st2?st2.sessions+" sessions \u00B7 "+st2.overall.toFixed(1)+"/5":"No data")+'</div></div></div><span>\u2192</span></div></div></div>'});
+    return h;
+  }
+  const p=S.d.players.find(x=>x.id===S.sp);const st2=stats(p.id);
+  let h='<button class="bs" onclick="S.sp=null;R()">\u2190 Back / \u0631\u062C\u0648\u0639</button><div style="display:flex;align-items:center;gap:12px;margin:16px 0"><div class="av" style="width:52px;height:52px;font-size:22px">'+p.name.charAt(0)+'</div><div><div style="font-size:22px;font-weight:800">'+p.name+'</div><div style="font-size:13px;color:var(--t2)">Age '+p.age+(st2?" \u00B7 "+st2.sessions+" sessions":"")+(p.medical_notes?" \u00B7 \u2695\uFE0F "+p.medical_notes:"")+'</div></div></div>';
+  if(st2){
+    h+='<div style="text-align:center;padding:20px;background:linear-gradient(135deg,#6d28d9,#4c1d95);border-radius:16px;color:#fff;margin-bottom:16px"><div style="font-size:44px;font-weight:900">'+st2.overall.toFixed(1)+'</div><div style="font-size:13px;opacity:.8">Overall \u00B7 Attendance: '+st2.att.toFixed(0)+'%</div></div>';
+
+    // AI Archetype
+    const arch=getArchetype(st2.latest.skills||{});
+    const ovr=getOverride(p.id);const ovrD=parseOverride(ovr);
+    const dArch=ovrD&&ovrD.archetype?{name:ovrD.archetype,ar:ovrD.archetype_ar||"",emoji:arch.emoji}:arch;
+    h+='<div class="cd"><div class="cb" style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:20px">'+dArch.emoji+'</div><div><div style="font-size:10px;color:var(--t3);letter-spacing:1px">AI IDENTITY</div><div style="font-size:16px;font-weight:800;color:#534AB7">'+dArch.name+'</div>'+(dArch.ar?'<div style="font-size:12px;color:#7c3aed">'+dArch.ar+'</div>':'')+'</div></div></div>';
+
+    // Learning style
+    const lStyle=ovrD&&ovrD.learning_style?ovrD.learning_style:getLearningStyle(st2.latest.skills||{});
+    h+='<div style="background:#f8fafc;border-radius:10px;padding:10px;margin-bottom:12px"><div style="font-size:11px;font-weight:700;color:var(--t2);margin-bottom:2px">Learning Style</div><div style="font-size:12px;color:var(--t)">'+lStyle+'</div></div>';
+
+    // Velocity
+    const allEv=S.d.evaluations.filter(e=>e.player_id===p.id&&e.attended);
+    const chSess=S.d.sessions.filter(s=>S.d.evaluations.some(e=>e.session_id===s.id&&e.player_id===p.id&&e.attended));
+    if(chSess.length>=2){
+      const fEv=S.d.evaluations.find(e=>e.session_id===chSess[0].id&&e.player_id===p.id&&e.attended);
+      const lEv=S.d.evaluations.find(e=>e.session_id===chSess[chSess.length-1].id&&e.player_id===p.id&&e.attended);
+      if(fEv&&lEv){
+        const fV=Object.values(fEv.skills).map(Number).filter(v=>v>0);
+        const lV=Object.values(lEv.skills).map(Number).filter(v=>v>0);
+        const vel=(av(lV)-av(fV))/(chSess.length-1);
+        if(vel!==0)h+='<div style="background:#EEEDFE;border-radius:10px;padding:10px;margin-bottom:12px;text-align:center"><div style="font-size:10px;color:#534AB7;letter-spacing:1px">VELOCITY</div><div style="font-size:24px;font-weight:800;color:#3C3489">'+(vel>0?"+":"")+vel.toFixed(2)+'/week</div></div>';
+      }
+    }
+
+    // Patterns
+    const pEvs=allEv.map(e=>({skills:e.skills}));
+    const patterns=getPatterns(pEvs);
+    if(patterns.length){
+      h+='<div class="cd"><div class="ch">AI Patterns</div><div class="cb">';
+      patterns.forEach(pt=>{
+        const cl=pt.type==="up"?"#059669":pt.type==="down"?"#dc2626":"#7c3aed";
+        h+='<div style="padding:4px 0;border-bottom:1px solid #f1f5f9;font-size:12px;color:'+cl+';font-weight:600">'+pt.text+'</div>';
+      });
+      h+='</div></div>';
+    }
+
+    // Session timeline
+    if(chSess.length>1){
+      h+='<div style="display:flex;align-items:center;gap:4px;margin-bottom:12px;overflow-x:auto">';
+      chSess.forEach((s,i)=>{
+        const ev=S.d.evaluations.find(e=>e.session_id===s.id&&e.player_id===p.id&&e.attended);
+        const sk=ev?ev.skills:{};const vals=Object.values(sk).map(Number).filter(v=>v>0);
+        const a2=vals.length?av(vals):0;const isL=i===chSess.length-1;
+        h+='<div style="flex:1;min-width:60px;text-align:center"><div style="font-size:10px;color:var(--t3)">'+fd(s.date).split(" ").slice(0,2).join(" ")+'</div><div style="font-size:18px;font-weight:800;color:'+(isL?"var(--b)":"var(--t3)")+'">'+a2.toFixed(1)+'</div></div>';
+        if(i<chSess.length-1)h+='<div style="color:var(--t3)">\u2192</div>';
+      });
+      h+='</div>';
+    }
+
+    // All 15 skills with trends
+    RCATS.forEach(cat=>{const cd=st2.byCat[cat.id];if(!cd||cd.avg===0)return;
+      h+='<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px"><span style="font-weight:600">'+cat.ic+' '+cat.nm+'</span><span style="font-weight:700">'+cd.avg.toFixed(1)+'</span></div><div class="pb"><div class="pf" style="width:'+cd.avg/5*100+'%;background:'+cat.cl+'"></div></div>';
+      cat.sk.forEach(sid=>{const sd=st2.bySk[sid];if(!sd)return;const sk=SK[sid];
+        const trend=sd.trend>0.1?' <span style="color:var(--g);font-size:10px">\u2191+'+sd.trend.toFixed(1)+'</span>':sd.trend<-0.1?' <span style="color:var(--r);font-size:10px">\u2193'+sd.trend.toFixed(1)+'</span>':'';
+        h+='<div style="display:flex;justify-content:space-between;padding:4px 0 4px 20px;font-size:13px"><span style="color:var(--t2)">'+sk.n+'</span><span style="font-weight:700;color:'+rc(sd.avg)+'">'+sd.avg.toFixed(1)+trend+'</span></div>'});
+      h+='</div>';
+    });
+    h+='<button class="bp bf" style="margin-top:16px" onclick="genWA(\''+p.id+'\')">\uD83D\uDCF1 WhatsApp Report / \u062A\u0642\u0631\u064A\u0631</button><div id="war"></div>';
+    // Admin edit AI profile
+    const curOvr=getOverride(p.id);const curData=parseOverride(curOvr);
+    const curArch=getArchetype(st2.latest.skills||{});
+    h+='<div class="cd" style="margin-top:12px"><div class="ch">\u270F\uFE0F Edit AI Profile / \u062A\u0639\u062F\u064A\u0644 \u0627\u0644\u0645\u0644\u0641</div><div class="cb">';
+    h+='<div class="fg"><label class="fl">Archetype / النمط</label><input class="fi" id="ov_arch" value="'+(curData&&curData.archetype?curData.archetype:curArch.name)+'" placeholder="e.g. Natural Leader"></div>';
+    h+='<div class="fg"><label class="fl">Archetype Arabic</label><input class="fi" id="ov_arch_ar" value="'+(curData&&curData.archetype_ar?curData.archetype_ar:curArch.ar)+'" placeholder="e.g. قائد بالفطرة"></div>';
+    h+='<div class="fg"><label class="fl">Learning Style Override</label><textarea class="fi" id="ov_learn" placeholder="Leave empty for auto-generated">'+(curData&&curData.learning_style?curData.learning_style:"")+'</textarea></div>';
+    h+='<div class="fg"><label class="fl">Custom Message to Parent</label><textarea class="fi" id="ov_msg" placeholder="Write a personal message about this child...">'+(curData&&curData.message?curData.message:"")+'</textarea></div>';
+    h+='<button class="bg bf" onclick="saveOverride(\''+p.id+'\')">Save / \u062D\u0641\u0638</button>';
+    if(curOvr)h+='<button class="bs bf" style="margin-top:6px;font-size:12px;color:var(--r)" onclick="clearOverride(\''+p.id+'\')">Clear Overrides</button>';
+    h+='</div></div>';
+  }
+  return h;
+}
+
+function genWA(pid){
+  const p=S.d.players.find(x=>x.id===pid);const st2=stats(pid);if(!p||!st2)return;
+  let t="\uD83C\uDFC0 *HOST Academy Report*\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n*"+p.name+"*\nAge: "+p.age+" | Sessions: "+st2.sessions+" | Overall: "+st2.overall.toFixed(1)+"/5\n";
+  RCATS.forEach(cat=>{const cd=st2.byCat[cat.id];if(!cd||cd.avg===0)return;t+="\n"+cat.ic+" *"+cat.nm+":* "+cd.avg.toFixed(1)+"/5\n";cat.sk.forEach(sid=>{const sd=st2.bySk[sid];if(!sd)return;t+="  "+SK[sid].n+": "+sd.avg.toFixed(1)+"\n"})});
+  t+="\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n_HOST Academy v3.0_";
+  document.getElementById("war").innerHTML='<div class="cd" style="margin-top:12px"><div class="ch">Copy & Send</div><div class="cb"><pre id="wat" style="white-space:pre-wrap;font-size:12px">'+t+'</pre><button class="bg bf" style="margin-top:8px" onclick="navigator.clipboard.writeText(document.getElementById(\'wat\').textContent).then(()=>toast(\'Copied!\'))">\uD83D\uDCCB Copy</button></div></div>';
+}
+
+function vAM(){
+  let h='<h2 class="tl">Messages / \u0627\u0644\u0631\u0633\u0627\u0626\u0644</h2><div class="cd"><div class="cb"><textarea class="fi" id="mt" placeholder="Message for parents & kids... / \u0631\u0633\u0627\u0644\u0629 \u0644\u0644\u0623\u0647\u0627\u0644\u064A"></textarea><button class="bp bf" style="margin-top:8px" onclick="sendMsg()">\uD83D\uDCE2 Send / \u0625\u0631\u0633\u0627\u0644</button></div></div>';
+  S.d.messages.forEach(m=>{
+    const ic=m.type==="parent_checkin"?"\uD83D\uDCDD":m.type==="parent_feedback"?"\u2B50":m.type==="kid_rating"?"\uD83C\uDFC0":"\uD83D\uDCE2";
+    const bg=m.type==="parent_checkin"?"#fef3c7":m.type==="parent_feedback"?"#ede9fe":m.type==="kid_rating"?"#ecfeff":"#fff";
+    const bc=m.type==="parent_checkin"?"#d97706":m.type==="parent_feedback"?"#7c3aed":m.type==="kid_rating"?"#0891b2":"var(--b)";
+    h+='<div class="cd" style="border-left:3px solid '+bc+'"><div class="cb" style="background:'+bg+'"><div style="display:flex;justify-content:space-between"><span style="font-size:11px;color:var(--t3)">'+fd(m.date)+'</span><span style="font-size:10px;font-weight:600">'+ic+'</span></div><div style="font-size:11px;font-weight:600;margin-top:2px">'+(m.from_name||"HOST")+'</div><div style="font-size:13px;margin-top:4px">'+m.text+'</div></div></div>'});
+  return h;
+}
+
+async function sendMsg(){
+  const t=document.getElementById("mt").value.trim();if(!t){toast("Write a message");return}
+  if(await post({action:"sendMessage",message:{id:gid(),date:new Date().toISOString(),from_name:"HOST Academy",text:t,type:"announcement"}})){toast("Sent!");R()}
+}
+
+async function saveOverride(pid){
+  const arch=document.getElementById("ov_arch").value.trim();
+  const archAr=document.getElementById("ov_arch_ar").value.trim();
+  const learn=document.getElementById("ov_learn").value.trim();
+  const msg=document.getElementById("ov_msg").value.trim();
+  const data=JSON.stringify({archetype:arch||null,archetype_ar:archAr||null,learning_style:learn||null,message:msg||null});
+  // Remove old override if exists
+  const old=getOverride(pid);
+  const ok=await post({action:"sendMessage",message:{id:old?old.id:gid(),date:new Date().toISOString(),from_name:"Admin Override",text:"OVERRIDE:"+pid+":"+data,type:"admin_override"}});
+  if(ok){toast("Profile updated! \u2713");R()}
+}
+
+async function clearOverride(pid){
+  if(!confirm("Clear all overrides for this player?"))return;
+  const ok=await post({action:"sendMessage",message:{id:gid(),date:new Date().toISOString(),from_name:"Admin",text:"OVERRIDE:"+pid+":{}",type:"admin_override"}});
+  if(ok){toast("Overrides cleared");R()}
+}
+
+function vAD(){
+  const d=S.d;
+  let h='<h2 class="tl">Data / \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A</h2><div class="cd"><div class="cb"><div class="ib" style="margin-bottom:12px">\uD83D\uDC65 '+d.players.length+' \u00B7 \uD83D\uDCCB '+d.sessions.length+' \u00B7 \uD83D\uDCCA '+d.evaluations.length+' \u00B7 \uD83D\uDCE2 '+d.messages.length+'</div>';
+  h+='<button class="bp bf" style="margin-bottom:8px" onclick="expD()">\uD83D\uDCE5 Export / \u062A\u0635\u062F\u064A\u0631</button>';
+  h+='<button class="bf" style="background:none;border:1px solid var(--b);color:var(--b);border-radius:8px;padding:10px;font-size:14px" onclick="api().then(()=>{R();toast(\'Refreshed\')})">\uD83D\uDD04 Refresh / \u062A\u062D\u062F\u064A\u062B</button></div></div>';
+  if(d.players.length){
+    h+='<div class="cd"><div class="ch">PINs</div><div class="cb"><div style="font-size:12px;color:var(--t2);margin-bottom:8px">Coach PIN: <b style="font-family:monospace;font-size:14px">'+PIN_COACH+'</b> | Admin PIN: <b style="font-family:monospace;font-size:14px">'+PIN_ADMIN+'</b></div>';
+    d.players.forEach(p=>{h+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:14px"><span>'+p.name+'</span><span style="font-weight:700;font-family:monospace;font-size:16px">'+p.parent_pin+'</span></div>'});
+    h+='</div></div>';
+  }
+  return h;
+}
+
+function expD(){
+  const b=new Blob([JSON.stringify(S.d,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="host-academy-"+new Date().toISOString().slice(0,10)+".json";a.click();toast("Exported");
+}
+
+// ═══ INIT ═══
+api().then(R);
+</script>
+</body>
+</html>
